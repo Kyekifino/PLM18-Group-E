@@ -12,24 +12,20 @@ class cardStack(object):
     """Represents any such stack of cards."""
 
     def __init__(self):
-        self.stack = []
-        self.isVisible = true
+        self.cards = []
+        self.isVisible = True
 
 class Deck(cardStack):
     """Represents a deck of cards."""
-
-    def __init__(self):
-        self.cards = []
-        self.isVisible = true
 
     def shuffle(self):
         random.shuffle(self.cards)
 
     def changeVisibility(self):
         if self.isVisible:
-            self.isVisible = false
+            self.isVisible = False
         else :
-            self.isVisible = true
+            self.isVisible = True
 
     def deal(self, size, Player):
         for num in Range(0,size):
