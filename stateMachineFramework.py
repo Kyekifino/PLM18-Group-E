@@ -111,7 +111,7 @@ class State(Thing):
 # All code inside this block is just an example for this test implementation!
 
 # Example for outer class to use for turn control
-class NewTurn(State):
+"""class NewTurn(State):
     tag = "*"
     currPlayer = 1
 
@@ -138,7 +138,7 @@ class Exit(State):
     def onExit(i):
         print("bye bye")
         return i
-
+"""
 # ------------------------------------------------------------------------------
 class Machine(Thing):
     """Maintains a set of named states.
@@ -252,7 +252,7 @@ def spec002(m, s, t):
     t("start", m.true, player)
     t(player, m.repeat, player)
     t(player, m.leave, exit)
-
+"""
 @testFramework
 def nestedMachine():
     make(OuterMachine("Welcome to the game!", 5),
@@ -263,3 +263,4 @@ def nestedMachine():
 if __name__ == "__main__":
     rseed()
     testFramework()
+"""

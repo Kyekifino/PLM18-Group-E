@@ -1,4 +1,4 @@
-from Cards import * 
+from Cards import *
 
 unplayedDeck = Deck()
 bufferDeck = Deck()
@@ -16,8 +16,11 @@ class Player(object):
         self.hand = cardStack()
         self.handSize = 0
 
+    def getHand(self):
+        return str(self.hand.cards)
+
     def draw(self):
-        self.hand.cards[self.handSize] = unplayedDeck.draw()
+        self.hand.cards.append(unplayedDeck.draw())
         self.handSize += 1
 
     def takeAll(self):
@@ -39,7 +42,7 @@ class Player(object):
 
     def proof(self, rule):
         #check if the cards are of whatever rule
-        #idk how rules look like yet. 
+        #idk how rules look like yet.
         if (True) :
             playedDeck.cards += bufferDeck.cards
             bufferDeck.cards[:] = []
@@ -53,4 +56,4 @@ class Player(object):
     def seeHand(self):
         print(self.hand.cards)
 
-players = [Player(i) for i in range(numberOfPlayers)]
+#players = [Player(i) for i in range(numberOfPlayers)]
