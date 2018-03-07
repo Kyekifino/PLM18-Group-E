@@ -37,8 +37,9 @@ class Player(object):
         # they are sent to buffer because some games have a possiblity of not accepting the cards (Cheat)
         bufferDeck.cards += cards
         self.handSize -= len(cards)
-        for i in cards:
-            self.hand.cards.remove(i)
+        print(self.hand.cards)
+        print(cards)
+        self.hand.cards = [x for x in self.hand.cards if x not in cards]
 
     def proof(self, rule):
         #check if the cards are of whatever rule

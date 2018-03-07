@@ -11,6 +11,11 @@ class Card(object):
         return str(self.suit) + str(self.rank)
     def __str__(self):
         return str(self.suit) + str(self.rank)
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.__dict__ == other.__dict__
+        else:
+            return False
 
 class cardStack(object):
     """Represents any such stack of cards."""
@@ -51,8 +56,8 @@ class Deck(cardStack):
     def draw(self):
         return self.cards.pop()
 
-    def addToDeck(self):
-        self.cards.append(card)
+    def addToDeck(self, c):
+        self.cards.append(c)
 
     def fillDeck(self):
         if not self.cards:
@@ -68,12 +73,14 @@ class Deck(cardStack):
                         suit = "S"
                     if rank == 1:
                         rank = "A"
-                    if rank == 11:
+                    elif rank == 11:
                         rank = "J"
-                    if rank == 12:
+                    elif rank == 12:
                         rank = "Q"
-                    if rank == 13:
+                    elif rank == 13:
                         rank = "K"
+                    else:
+                        rank = str(rank)
                     card = Card(suit, rank)
                     self.cards.append(card)
 

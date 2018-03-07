@@ -199,11 +199,12 @@ class OuterMachine(Machine):
 # Create with specs to simulate a turn
 class InnerMachine(Machine):
 
-    def __init__(i, name, currPlayer):
+    def __init__(i, name, currPlayer, currRank):
         i.all = {}
         i.name = name
         i.start = None
         i.currPlayer = currPlayer
+        i.currRank = currRank
 
 
 # ---------------------------------------
