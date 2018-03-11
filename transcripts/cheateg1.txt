@@ -1,0 +1,297 @@
+This is a transcript of a game of cheat between three players: Ralph, Jesse, and Andrew. This transcript is all output on the game screen from the perspective of the player Ralph.
+
+Welcome to the Cheat server! Now type your name and press enter to join!
+Welcome Ralph! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.
+Jesse has joined the chat!
+Andrew has joined the chat!
+Jesse has decided to start a game of cheat!
+
+There are 3 players playing!
+
+To play cards on your turn, write {play} followed by the cards.
+
+For example, write "{play} H4 S4" to play the 4 of Hearts and the 4 of Spades.
+If you think a player played cards that aren't of the current rank, announce {cheat}
+If they were lying, they have to pick up all the played cards... but if the weren't... you do!
+To see your hand, write {hand}. For help, write {help}.
+
+Hand: [C5, S10, DA, H5, CQ, C10, H7, C3, DK, SJ, D3, SQ, H9, H6, H2, D7, S5, SK]
+Ralph is up! 
+Current rank is A. Hand: [C5, S10, DA, H5, CQ, C10, H7, C3, DK, SJ, D3, SQ, H9, H6, H2, D7, S5, SK]
+Ralph played 2 cards.
+You have five seconds to announce {cheat}.
+Jesse has called cheat... 
+Ralph was cheating, and has to pick up the stack! 
+Time's up!
+Jesse is up! 
+Current rank is 2. 
+Jesse played 3 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Jesse wasn't cheating... Andrew has to pick up the stack...
+Time's up!
+Andrew is up! 
+Current rank is 3. 
+Andrew played 2 cards.
+You have five seconds to announce {cheat}.
+Ralph has called cheat... 
+Andrew was cheating, and has to pick up the stack! 
+Time's up!
+Ralph is up! 
+Current rank is 4. Hand: [C5, S10, H5, CQ, C10, H7, C3, DK, SJ, D3, SQ, H9, H6, H2, D7, S5, DA, SK]
+Ralph played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is 5. 
+Jesse: {plau} D6
+Jesse: Oops lol
+Jesse played 1 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Jesse was cheating, and has to pick up the stack! 
+Time's up!
+Andrew is up! 
+Current rank is 6. 
+Andrew played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is 7. Hand: [C5, S10, CQ, C10, H7, C3, DK, SJ, D3, SQ, H9, H6, H2, D7, S5, DA, SK]
+Ralph played 2 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Ralph wasn't cheating... Andrew has to pick up the stack...
+Time's up!
+Jesse is up! 
+Current rank is 8. 
+Jesse played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Andrew is up! 
+Current rank is 9. 
+Andrew played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is 10. Hand: [C5, S10, CQ, C10, C3, DK, SJ, D3, SQ, H9, H6, H2, S5, DA, SK]
+Ralph played 2 cards.
+You have five seconds to announce {cheat}.
+Jesse has called cheat... 
+Ralph wasn't cheating... Jesse has to pick up the stack...
+Time's up!
+Jesse is up! 
+Current rank is J. 
+Jesse: bruh
+Jesse played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Andrew is up! 
+Current rank is Q. 
+Andrew: {plau} DQ HQ
+Andrew played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is K. Hand: [C5, CQ, C3, DK, SJ, D3, SQ, H9, H6, H2, S5, DA, SK]
+Ralph played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is A. 
+Jesse played 1 cards.
+You have five seconds to announce {cheat}.
+Ralph has called cheat... 
+Jesse was cheating, and has to pick up the stack! 
+Time's up!
+Andrew is up! 
+Current rank is 2. 
+Andrew played 3 cards.
+You have five seconds to announce {cheat}.
+Jesse has called cheat... 
+Andrew wasn't cheating... Jesse has to pick up the stack...
+Time's up!
+Ralph is up! 
+Current rank is 3. Hand: [C5, CQ, C3, SJ, D3, SQ, H9, H6, H2, S5, DA]
+Ralph played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is 4. 
+Jesse played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Andrew is up! 
+Current rank is 5. 
+Andrew played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is 6. Hand: [C5, CQ, SJ, SQ, H9, H6, H2, S5, DA]
+Ralph played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is 7. 
+Jesse played 1 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Jesse was cheating, and has to pick up the stack! 
+Time's up!
+Andrew is up! 
+Current rank is 8. 
+Andrew played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is 9. Hand: [CQ, SJ, SQ, H9, H2, S5, DA]
+Ralph played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is 10. 
+Jesse played 4 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Jesse wasn't cheating... Andrew has to pick up the stack...
+Time's up!
+Andrew is up! 
+Current rank is J. 
+Andrew played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is Q. 
+Hand: [CQ, SJ, SQ, H2, S5, DA]
+Ralph played 4 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is K. 
+Hand: [H2, DA]
+Jesse: wait no
+Jesse: I didn't say it in time
+Jesse played 4 cards.
+You have five seconds to announce {cheat}.
+Andrew: wow
+Time's up!
+Andrew is up! 
+Current rank is A. 
+Andrew played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is 2. Hand: [H2, DA]
+Ralph played 1 cards.
+You have five seconds to announce {cheat}.
+Ralph: ayy
+Time's up!
+Jesse is up! 
+Current rank is 3. 
+Jesse played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Andrew is up! 
+Current rank is 4. 
+Andrew played 3 cards.
+You have five seconds to announce {cheat}.
+Jesse has called cheat... 
+Andrew was cheating, and has to pick up the stack! 
+Time's up!
+Ralph is up! 
+Current rank is 5. Hand: [DA]
+Ralph played 1 cards.
+Ralph emptied their hand!
+Ralph was cheating with their final play, and must pick up the deck!
+Jesse is up! 
+Current rank is 6. 
+Jesse played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Andrew is up! 
+Current rank is 7. 
+Andrew played 4 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is 8. Hand: [DA]
+Ralph played 1 cards.
+Ralph emptied their hand!
+Ralph was cheating with their final play, and must pick up the deck!
+Jesse is up! 
+Current rank is 9. 
+Hand: [S6, D6, S7, H7, C7, D7, DA]
+Jesse played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Andrew is up! 
+Current rank is 10. 
+Andrew played 4 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is J. Hand: [S6, D6, S7, H7, C7, D7, DA]
+Ralph played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is Q. 
+Jesse played 2 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Jesse wasn't cheating... Andrew has to pick up the stack...
+Time's up!
+Andrew is up! 
+Current rank is K. 
+Andrew played 4 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is A. Hand: [S7, H7, C7, D7, DA]
+Ralph played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is 2. 
+Jesse played 2 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Jesse was cheating, and has to pick up the stack! 
+Time's up!
+Andrew is up! 
+Current rank is 3. 
+Andrew played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Ralph is up! 
+Current rank is 4. Hand: [S7, H7, C7, D7]
+Ralph played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Jesse is up! 
+Current rank is 5. 
+Jesse played 2 cards.
+You have five seconds to announce {cheat}.
+Andrew has called cheat... 
+Jesse was cheating, and has to pick up the stack! 
+Time's up!
+Andrew is up! 
+Current rank is 6. 
+Andrew: {plau} HJ HA D8 H3 C6 S8 H9 CQ SQ SJ S5 CA SA H2 D4
+Andrew: lol
+Andrew: dont mind me
+Andrew played 15 cards.
+You have five seconds to announce {cheat}.
+Ralph has called cheat... 
+Andrew was cheating, and has to pick up the stack! 
+Time's up!
+Ralph is up! 
+Current rank is 7. Hand: [S7, C7, D7]
+Ralph: gg
+Ralph played 3 cards.
+Ralph emptied their hand!
+Ralph wasn't cheating... and wins!
+Game over!
+Say {start} to play again!
+Jesse: gg
+Andrew: gg
