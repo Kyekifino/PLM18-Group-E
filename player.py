@@ -19,9 +19,16 @@ class Player(object):
     def getHand(self):
         return str(self.hand.cards)
 
-    def draw(self):
-        self.hand.cards.append(unplayedDeck.draw())
-        self.handSize += 1
+    def draw(self, num = 1):
+        if unplayedDeck.isEmpty():
+            saveCard = playedDeck.draw()
+            while (not playedDeck.isEmpty()):
+                unplayedDeck.addToDeck(playedDeck.draw())
+            unplayedDeck.shuffle()
+            playedDeck.addToDeck(saveCard)
+        for i in range(num):
+            self.hand.cards.append(unplayedDeck.draw())
+            self.handSize += 1
 
     def takeAll(self):
         self.handSize += len(playedDeck.cards)
@@ -53,8 +60,5 @@ class Player(object):
             self.handSize += len(bufferDeck)
             bufferDeck.cards[:] = []
             return False;
-
-    def seeHand(self):
-        print(self.hand.cards)
 
 #players = [Player(i) for i in range(numberOfPlayers)]

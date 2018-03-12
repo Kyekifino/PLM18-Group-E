@@ -43,6 +43,9 @@ class Deck(cardStack):
     def shuffle(self):
         shuffle(self.cards)
 
+    def lastCard(self):
+        return self.cards[len(self.cards) - 1]
+    
     def changeVisibility(self):
         if self.isVisible:
             self.isVisible = False
