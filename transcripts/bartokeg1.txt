@@ -1,4 +1,4 @@
-### This is a transcript of a game of Bartok between four players: Zen, Ruby, Aaron, and Lily. This transcript is all output on the game screen from the perspective of the player Aaron.
+//This is a transcript of a game of Bartok between four players: Zen, Ruby, Aaron, and Lily. This transcript is all output on the game screen from the perspective of the player Aaron.
 
 Welcome to the Bartok server! Now type your name and press enter to join!
 Welcome Aaron! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.
@@ -26,6 +26,7 @@ Ruby drew one card!
 It's your turn!
 Current card is C5.
 Hand: [D8, HQ, H4, C3, D6]
+//{play} C3
 Aaron played C3
 Lily is up! 
 Current card is C3.
@@ -41,6 +42,7 @@ Ruby played HJ
 It's your turn!
 Current card is HJ.
 Hand: [D8, HQ, H4, D6]
+//{play} HQ
 Aaron played HQ
 Lily is up! 
 Current card is HQ.
@@ -56,6 +58,7 @@ Ruby played DJ
 It's your turn!
 Current card is DJ.
 Hand: [D8, H4, D6]
+//{play} D8
 Aaron played D8
 Lily is up! 
 Current card is D8.
@@ -72,6 +75,7 @@ Ruby drew one card!
 It's your turn!
 Current card is D3.
 Hand: [H4, D6]
+//{play} D6
 Aaron played D6
 Lily is up! 
 Current card is D6.
@@ -87,9 +91,8 @@ Ruby drew one card!
 It's your turn!
 Current card is H6.
 Hand: [H4]
+//{play} H4
 Aaron played H4
 
 Aaron emptied their hand! They Win the Game.
 Game over!
-
-
