@@ -1,0 +1,342 @@
+This is a transcript of a game of cheat between four players: Zach, Tyler, Stephen, and Buddy. This transcript is all output on the game screen from the perspective of the player Buddy.
+
+Welcome to the Cheat server! Now type your name and press enter to join!
+Welcome Buddy! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.
+Zach has decided to start a game of cheat!
+
+There are 4 players playing!
+
+To play cards on your turn, write {play} followed by the cards.
+
+For example, write "{play} H4 S4" to play the 4 of Hearts and the 4 of Spades.
+If you think a player played cards that aren't of the current rank, announce {cheat}
+If they were lying, they have to pick up all the played cards... but if the weren't... you do!
+To see your hand, write {hand}. For help, write {help}.
+
+Hand: [D10, S7, CK, HK, HA, D5, C2, S10, C8, D6, H4, S9, C9]
+Zach is up! 
+Current rank is A. 
+Zach played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is 2. 
+Tyler played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 3. 
+Stephen played 2 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Stephen wasn't cheating... Tyler has to pick up the stack...
+Time's up!
+Buddy is up! 
+Current rank is 4. Hand: [D10, S7, CK, HK, HA, D5, C2, S10, C8, D6, H4, S9, C9]
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is 5. 
+Zach played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is 6. 
+Tyler played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 7. 
+Stephen played 3 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Stephen was cheating, and has to pick up the stack! 
+Time's up!
+Buddy is up! 
+Current rank is 8. Hand: [D10, S7, CK, HK, HA, D5, C2, S10, C8, D6, S9, C9]
+Buddy: C8
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Stephen: lol
+Tyler: lol
+Time's up!
+Zach is up! 
+Current rank is 9. 
+Zach played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is 10. 
+Tyler played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is J. 
+Stephen played 3 cards.
+You have five seconds to announce {cheat}.
+Zach has called cheat... 
+Stephen wasn't cheating... Zach has to pick up the stack...
+Time's up!
+Buddy is up! 
+Current rank is Q. 
+Hand: [D10, S7, CK, HK, HA, D5, C2, S10, D6, S9, C9]
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is K. 
+Zach played 3 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Zach was cheating, and has to pick up the stack! 
+Time's up!
+Tyler is up! 
+Current rank is A. 
+Tyler played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 2. 
+Stephen played 1 cards.
+You have five seconds to announce {cheat}.
+Buddy has called cheat... 
+Stephen wasn't cheating... Buddy has to pick up the stack...
+Time's up!
+Buddy is up! 
+Current rank is 3. 
+Hand: [D10, S7, CK, HK, D5, C2, S10, D6, S9, C9, SA, CA, H2]
+Buddy: oh
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is 4. 
+Zach played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is 5. 
+Tyler played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 6. 
+Stephen played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Buddy is up! 
+Current rank is 7. Hand: [D10, S7, CK, HK, D5, C2, S10, D6, C9, SA, CA, H2]
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is 8. 
+Zach played 2 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Zach wasn't cheating... Tyler has to pick up the stack...
+Time's up!
+Tyler is up! 
+Current rank is 9. 
+Tyler played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 10. 
+Stephen played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Buddy is up! 
+Current rank is J. Hand: [D10, CK, HK, D5, C2, S10, D6, C9, SA, CA, H2]
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Zach has called cheat... 
+Buddy was cheating, and has to pick up the stack! 
+Time's up!
+Zach is up! 
+Current rank is Q. 
+Buddy: man
+Hand: [D10, CK, HK, D5, C2, S10, D6, C9, SA, H2, S9, H9, C10, CA]
+Zach played 2 cards.
+You have five seconds to announce {cheat}.
+Buddy has called cheat... 
+Zach wasn't cheating... Buddy has to pick up the stack...
+Time's up!
+Tyler is up! 
+Current rank is K. 
+Tyler played 3 cards.
+You have five seconds to announce {cheat}.
+Stephen has called cheat... 
+Tyler was cheating, and has to pick up the stack! 
+Time's up!
+Stephen is up! 
+Current rank is A. 
+Stephen played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Buddy is up! 
+Current rank is 2. Hand: [D10, CK, HK, D5, C2, S10, D6, C9, SA, H2, S9, H9, C10, CA, CQ, HQ]
+Buddy played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is 3. 
+Zach played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is 4. 
+Tyler played 3 cards.
+You have five seconds to announce {cheat}.
+Zach has called cheat... 
+Tyler wasn't cheating... Zach has to pick up the stack...
+Time's up!
+Stephen is up! 
+Current rank is 5. 
+Stephen played 2 cards.
+You have five seconds to announce {cheat}.
+Zach has called cheat... 
+Stephen wasn't cheating... Zach has to pick up the stack...
+Time's up!
+Buddy is up! 
+Current rank is 6. Hand: [D10, CK, HK, D5, S10, D6, C9, SA, S9, H9, C10, CA, CQ, HQ]
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is 7. 
+Zach played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is 8. 
+Tyler played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 9. 
+Stephen played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Buddy is up! 
+Current rank is 10. Hand: [D10, CK, HK, D5, S10, C9, SA, S9, H9, C10, CA, CQ, HQ]
+Buddy played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is J. 
+Zach played 3 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Zach wasn't cheating... Tyler has to pick up the stack...
+Time's up!
+Tyler is up! 
+Current rank is Q. 
+Tyler: can I just play nothing
+Zach: no
+Tyler: bruh
+Tyler played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is K. 
+Stephen played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Buddy is up! 
+Current rank is A. 
+Hand: [CK, HK, D5, S10, C9, SA, S9, H9, CA, CQ, HQ]
+Buddy played 2 cards.
+You have five seconds to announce {cheat}.
+Zach has called cheat... 
+Buddy wasn't cheating... Zach has to pick up the stack...
+Time's up!
+Zach is up! 
+Current rank is 2. 
+Zach played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is 3. 
+Tyler played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 4. 
+Stephen played 1 cards.
+Stephen emptied their hand!
+Stephen was cheating with their final play, and must pick up the deck!
+Buddy is up! 
+Current rank is 5. Hand: [CK, HK, D5, S10, C9, S9, H9, CQ, HQ]
+Buddy played 1 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is 6. 
+Zach played 2 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Zach was cheating, and has to pick up the stack! 
+Time's up!
+Tyler is up! 
+Current rank is 7. 
+Tyler played 4 cards.
+You have five seconds to announce {cheat}.
+Buddy has called cheat... 
+Tyler wasn't cheating... Buddy has to pick up the stack...
+Time's up!
+Stephen is up! 
+Current rank is 8. 
+Stephen played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Buddy is up! 
+Current rank is 9. Hand: [CK, HK, S10, C9, S9, H9, CQ, HQ, D7, H7, S7, C7]
+Buddy played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Zach is up! 
+Current rank is 10. 
+Zach played 2 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Tyler is up! 
+Current rank is J. 
+Tyler played 3 cards.
+You have five seconds to announce {cheat}.
+Buddy has called cheat... 
+Tyler wasn't cheating... Buddy has to pick up the stack...
+Time's up!
+Stephen is up! 
+Current rank is Q. 
+Stephen played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Buddy is up! 
+Current rank is K. Hand: [CK, HK, S10, CQ, HQ, D7, H7, S7, C7, D8, D2, C9, S9, H9, D10, H10, SJ, CJ, DJ]
+Buddy played 2 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Buddy wasn't cheating... Tyler has to pick up the stack...
+Time's up!
+Zach is up! 
+Current rank is A. 
+Zach played 3 cards.
+You have five seconds to announce {cheat}.
+Tyler has called cheat... 
+Zach wasn't cheating... Tyler has to pick up the stack...
+Time's up!
+Tyler is up! 
+Current rank is 2. 
+Tyler played 3 cards.
+You have five seconds to announce {cheat}.
+Time's up!
+Stephen is up! 
+Current rank is 3. 
+Stephen: good game guys
+Stephen played 2 cards.
+Stephen emptied their hand!
+Stephen wasn't cheating... and wins!
+Game over!
+Say {start} to play again!
