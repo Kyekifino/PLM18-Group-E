@@ -2,13 +2,12 @@
 
 #Boiler plate code taken from https://medium.com/swlh/lets-write-a-chat-app-in-python-f6783a9ac170
 """Server for multithreaded (asynchronous) chat application."""
+import time
 from socket import AF_INET, socket, SOCK_STREAM, timeout
 from threading import Thread, Timer
-from stateMachineFramework import *
-from player import *
-from Cards import *
-
-
+from stateMachineFramework import State, OuterMachine, InnerMachine, make
+from player import playedDeck, unplayedDeck, Player
+from cards import Card
 
 def accept_incoming_connections():
     """Sets up handling for incoming clients."""
@@ -62,6 +61,13 @@ def broadcast(msg, prefix=""):  # prefix is for name identification.
     for sock in clients:
         sock.send(bytes(prefix, "utf8")+msg)
 
+def broadcastToOthers(msg, currentPlayer, youMessage):
+    for sock in clients:
+        if (clients[sock] == currentPlayer):
+            sock.send(youMessage)
+        else:
+            sock.send(msg)
+
 #----------------------------------------
 # Usable commands
 #----------------------------------------
@@ -74,7 +80,7 @@ def showHand(client, args):
 def getStatus(client, args):
     global bartokGame
     if bartokGame is None:
-        client.send(bytes("Wait for the game to start...", "utf8"))
+        client.send(bytes("!Wait for the game to start...", "utf8"))
     else:
         client.send(bytes("You have " + str(len(players[currentPlayer].hand.cards)) + " cards.", "utf8"))
         for i in players.keys():
@@ -86,16 +92,16 @@ def playSomeCards(client, args):
     global turnFlag
     global victory
     if bartokGame is None:
-        client.send(bytes("Wait for the game to start...", "utf8"))
+        client.send(bytes("!Wait for the game to start...", "utf8"))
     elif clients[client] == currentPlayer:
 
         if (len(args) != 2):
-            client.send(bytes("You must play one card.", "utf8"))
+            client.send(bytes("!You must play one card.", "utf8"))
         else:
             myHand = players[currentPlayer].hand.cards
             myCard = Card(args[1][0], args[1][1:])
             if myCard not in myHand:
-                client.send(bytes("You don't have this card! ", "utf8"))
+                client.send(bytes("!You don't have this card! ", "utf8"))
                 return
             if myCard.rank == playedDeck.lastCard().rank or myCard.suit == playedDeck.lastCard().suit:
                 playedDeck.addToDeck(myCard)
@@ -106,10 +112,10 @@ def playSomeCards(client, args):
                     broadcast(bytes(nextPlayer + " drew two cards! ", "utf8"))
                 turnFlag = True
             else:
-                client.send(bytes("You cannot play this card! Play a card from the same suit or rank. ", "utf8"))
+                client.send(bytes("!You cannot play this card! Play a card from the same suit or rank. ", "utf8"))
                 return
     else:
-        client.send(bytes("Wait for your turn...", "utf8"))
+        client.send(bytes("!Wait for your turn...", "utf8"))
 
 def drawCard(client, args):
     global bartokGame
@@ -156,7 +162,7 @@ def playBartok(client, args):
         for p in clients: #Init players
             players[clients[p]] = Player(clients[p])
             players[clients[p]].draw(5)
-            #players[clients[p]].hand.cards.append(Card("S", "5"))
+            # players[clients[p]].hand.cards.append(Card("S", "5"))
         playedDeck.addToDeck(unplayedDeck.draw())
         # playedDeck.addToDeck(Card("S", "7"))
         for p in clients:
@@ -193,7 +199,6 @@ turnFlag = False
 victory = False
 currentPlayer = None
 nextPlayer = None
-cardsPlayed = []
 
 
 HOST = ''
@@ -205,7 +210,7 @@ SERVER = socket(AF_INET, SOCK_STREAM)
 SERVER.bind(ADDR)
 
 #----------------------------------------
-# Cheat game specifications
+# Bartok game specifications
 #----------------------------------------
 def bartokSpec(m, s, t):
 
@@ -214,14 +219,13 @@ def bartokSpec(m, s, t):
     def repeatTurns(i):
         return not victory
 
-    repeat = 0
     m.leave = timeToExit
     m.repeat = repeatTurns
     player = s("player*")
-    exit = s("exit.")
+    exitGame = s("exit.")
     t("start", m.true, player)
     t(player, m.repeat, player)
-    t(player, m.leave, exit)
+    t(player, m.leave, exitGame)
 
 class Turn(State):
     global victory
@@ -231,63 +235,61 @@ class Turn(State):
     currPlayer = 0
     currSuit = 1
 
-    def onEntry(i):
+    def onEntry(self):
         global currentPlayer
         global nextPlayer
         p = [clients[k] for k in clients]
-        currentPlayer = p[i.currPlayer]
-        nextPlayer = p[i.currPlayer + 1 if i.currPlayer < i.model.numPlayers - 1 else 0]
+        currentPlayer = p[self.currPlayer]
+        nextPlayer = p[self.currPlayer + 1 if self.currPlayer < self.model.numPlayers - 1 else 0]
         name = str(currentPlayer + " is up! ")
-        broadcast(bytes(name, "utf8"))
-        victory = make(InnerMachine(name,i.currPlayer,i.currSuit),bartokTurnSpec).run()
+        broadcastToOthers(bytes(name, "utf8"), currentPlayer, bytes("It's your turn!", "utf8"))
+        make(InnerMachine(name,self.currPlayer,self.currSuit),bartokTurnSpec).run()
 
-    def onExit(i):
-        if i.currPlayer < i.model.numPlayers - 1:
-            i.currPlayer += 1
+    def onExit(self):
+        if self.currPlayer < self.model.numPlayers - 1:
+            self.currPlayer += 1
         else:
-            i.currPlayer = 0
-        if i.currSuit < 13:
-            i.currSuit += 1
+            self.currPlayer = 0
+        if self.currSuit < 13:
+            self.currSuit += 1
         else:
-            i.currSuit = 1
+            self.currSuit = 1
 
 class GameOver(State):
     tag = "."
 
-    def quit(i):
+    def quit(self):
         return True
 
-    def onExit(i):
+    def onExit(self):
         global players
         global bartokGame
         global turnFlag
         global victory
         global currentPlayer
         global nextPlayer
-        global cardsPlayed
         players = {}
         bartokGame = None
         turnFlag = False
         victory = False
         currentPlayer = None
         nextPlayer = None
-        playedDeck = []
+        playedDeck.resetDeck()
+        unplayedDeck.resetDeck()
         broadcast(bytes("Game over!\n", "utf8"))
-        return True
+        return False
 
 #----------------------------------------
-# Cheat turn specifications
+# Bartok turn specifications
 #----------------------------------------
 def bartokTurnSpec(m, s, t):
     def waitForCards(i):
-        global cardsPlayed
         global turnFlag
         global victory
         m.currCard = playedDeck.lastCard()
         broadcast(bytes("Current card is %s.\n" % str(m.currCard), "utf8"))
         p = [k for k in clients]
         showHand(p[m.currPlayer], [])
-        cardsPlayed = []
         turnFlag = False
         while not turnFlag:
             pass
@@ -299,7 +301,6 @@ def bartokTurnSpec(m, s, t):
     
     m.playcards = waitForCards
     play = s("play/")
-    check = s("check+")
     nextTurn = s("exit=")
     t("start", m.true, play)
     t(play, m.playcards, nextTurn)
@@ -307,35 +308,23 @@ def bartokTurnSpec(m, s, t):
 class PlayCards(State):
     tag = "/"
 
-    def quit(i):
+    def quit(self):
         return victory
 
-    def onExit(i):
+    def onExit(self):
         return True
 
 class NextTurn(State):
     tag = "="
 
-    def quit(i):
+    def quit(self):
         return True
 
-    def onEntry(i):
+    def onEntry(self):
         print("Entered into next turn state. Should move to next turn.")
 
-    def onExit(i):
+    def onExit(self):
         return False
-
-class GameOver(State):
-    tag = "!"
-
-    def quit(i):
-        return True
-
-    def onEntry(i):
-        print("Entered into game over state. Should end for real.")
-
-    def onExit(i):
-        return True
 
 #----------------------------------------
 

@@ -2,11 +2,12 @@
 
 #Boiler plate code taken from https://medium.com/swlh/lets-write-a-chat-app-in-python-f6783a9ac170
 """Server for multithreaded (asynchronous) chat application."""
+import time
 from socket import AF_INET, socket, SOCK_STREAM, timeout
 from threading import Thread, Timer
-from stateMachineFramework import *
-from player import *
-from Cards import *
+from stateMachineFramework import State, OuterMachine, InnerMachine, make
+from player import playedDeck, unplayedDeck, Player
+from cards import Card
 
 
 
@@ -183,12 +184,11 @@ SERVER.bind(ADDR)
 #----------------------------------------
 def cheatSpec(m, s, t):
 
-    def timeToExit(i):
+    def timeToExit(self):
         return victory
-    def repeatTurns(i):
+    def repeatTurns(self):
         return not victory
 
-    repeat = 0
     m.leave = timeToExit
     m.repeat = repeatTurns
     player = s("player*")
@@ -205,31 +205,31 @@ class Turn(State):
     currPlayer = 0
     currSuit = 1
 
-    def onEntry(i):
+    def onEntry(self):
         global currentPlayer
         p = [clients[k] for k in clients]
-        currentPlayer = p[i.currPlayer]
+        currentPlayer = p[self.currPlayer]
         name = str(currentPlayer + " is up! ")
         broadcast(bytes(name, "utf8"))
-        victory = make(InnerMachine(name,i.currPlayer,i.currSuit),cheatTurnSpec).run()
+        victory = make(InnerMachine(name,self.currPlayer,self.currSuit),cheatTurnSpec).run()
 
-    def onExit(i):
-        if i.currPlayer < i.model.numPlayers - 1:
-            i.currPlayer += 1
+    def onExit(self):
+        if self.currPlayer < self.model.numPlayers - 1:
+            self.currPlayer += 1
         else:
-            i.currPlayer = 0
-        if i.currSuit < 13:
-            i.currSuit += 1
+            self.currPlayer = 0
+        if self.currSuit < 13:
+            self.currSuit += 1
         else:
-            i.currSuit = 1
+            self.currSuit = 1
 
 class GameOver(State):
     tag = "."
 
-    def quit(i):
+    def quit(self):
         return True
 
-    def onExit(i):
+    def onExit(self):
         global players
         global cheatGame
         global cheating
@@ -253,7 +253,7 @@ class GameOver(State):
 # Cheat turn specifications
 #----------------------------------------
 def cheatTurnSpec(m, s, t):
-    def waitForCards(i):
+    def waitForCards(self):
         global cardsPlayed
         global turnFlag
         if m.currRank == 1:
@@ -273,7 +273,7 @@ def cheatTurnSpec(m, s, t):
             pass
         return True
 
-    def waitForCheat(i):
+    def waitForCheat(self):
         global cheatFlag
         global cheating
         global victory
@@ -322,38 +322,26 @@ class PlayCards(State):
 class Check(State):
     tag = "+"
 
-    def onEntry(i):
+    def onEntry(self):
         print("Entered into check state. Should determine cheating.")
 
-    def quit(i):
+    def quit(self):
         return victory
 
-    def onExit(i):
+    def onExit(self):
         return True
 
 class NextTurn(State):
     tag = "="
 
-    def quit(i):
+    def quit(self):
         return True
 
-    def onEntry(i):
+    def onEntry(self):
         print("Entered into next turn state. Should move to next turn.")
 
-    def onExit(i):
+    def onExit(self):
         return False
-
-class GameOver(State):
-    tag = "!"
-
-    def quit(i):
-        return True
-
-    def onEntry(i):
-        print("Entered into game over state. Should end for real.")
-
-    def onExit(i):
-        return True
 
 #----------------------------------------
 

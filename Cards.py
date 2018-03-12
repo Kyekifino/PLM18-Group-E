@@ -17,7 +17,7 @@ class Card(object):
         else:
             return False
 
-class cardStack(object):
+class CardStack(object):
     """Represents any such stack of cards."""
 
     def __init__(self):
@@ -34,7 +34,7 @@ class cardStack(object):
             str = str + card + ", "
         return str[0:-2]
 
-class Deck(cardStack):
+class Deck(CardStack):
     """Represents a deck of cards."""
 
     def isEmpty(self):
@@ -51,10 +51,6 @@ class Deck(cardStack):
             self.isVisible = False
         else :
             self.isVisible = True
-
-    def deal(self, size, Player):
-        for num in Range(0,size):
-            Player.hand[i] = self.cards.pop()
 
     def draw(self):
         return self.cards.pop()
