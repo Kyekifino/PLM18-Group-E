@@ -21,7 +21,7 @@ def accept_incoming_connections():
         else:
             if bartokGame is None:
                 print("%s:%s has connected." % client_address)
-                client.send(bytes("Welcome to the Bartok server! Now type your name and press enter to join!", "utf8"))
+                client.send(bytes("Welcome to the Bartok server! Now type your name and press enter to join!\n", "utf8"))
                 addresses[client] = client_address
                 Thread(target=handle_client, args=(client,)).start()
     bartokGame.run()
@@ -31,11 +31,11 @@ def handle_client(client):  # Takes client socket as argument.
     """Handles a single client connection."""
     name = client.recv(BUFSIZ).decode("utf8")
     while name in clients.values():
-        client.send(bytes("Another user has that name. Try again.", "utf8"))
+        client.send(bytes("Another user has that name. Try again.\n", "utf8"))
         name = client.recv(BUFSIZ).decode("utf8")
-    welcome = 'Welcome %s! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.' % name
+    welcome = 'Welcome %s! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.\n' % name
     client.send(bytes(welcome, "utf8"))
-    msg = "%s has joined the chat!" % name
+    msg = "%s has joined the chat!\n" % name
     broadcast(bytes(msg, "utf8"))
     clients[client] = name
 
@@ -75,66 +75,67 @@ def broadcastToOthers(msg, currentPlayer, youMessage):
 def showHand(client, args):
     name = str(clients[client])
     msg = "Hand: " + players[name].getHand()
-    client.send(bytes(msg, "utf8"))
+    client.send(bytes(msg + "\n", "utf8"))
 
 def getStatus(client, args):
     global bartokGame
     if bartokGame is None:
-        client.send(bytes("!Wait for the game to start...", "utf8"))
+        client.send(bytes("Wait for the game to start...\n", "utf8"))
     else:
-        client.send(bytes("You have " + str(len(players[currentPlayer].hand.cards)) + " cards.", "utf8"))
+        client.send(bytes("You have " + str(len(players[currentPlayer].hand.cards)) + " cards.\n", "utf8"))
         for i in players.keys():
             if (i != currentPlayer):
-                client.send(bytes(players[i].name + " has " + str(len(players[currentPlayer].hand.cards)) + " cards.", "utf8"))
+                client.send(bytes(players[i].name + " has " + str(len(players[currentPlayer].hand.cards)) + " cards.\n", "utf8"))
 
 def playSomeCards(client, args):
     global bartokGame
     global turnFlag
     global victory
+    global skipNextTurn
     if bartokGame is None:
-        client.send(bytes("!Wait for the game to start...", "utf8"))
+        client.send(bytes("Wait for the game to start...\n", "utf8"))
     elif clients[client] == currentPlayer:
 
         if (len(args) != 2):
-            client.send(bytes("!You must play one card.", "utf8"))
+            client.send(bytes("You must play one card.\n", "utf8"))
         else:
             myHand = players[currentPlayer].hand.cards
             myCard = Card(args[1][0], args[1][1:])
             if myCard not in myHand:
-                client.send(bytes("!You don't have this card! ", "utf8"))
+                client.send(bytes("You don't have this card!\n", "utf8"))
                 return
             if myCard.rank == playedDeck.lastCard().rank or myCard.suit == playedDeck.lastCard().suit:
                 playedDeck.addToDeck(myCard)
                 players[currentPlayer].playCards([] + [myCard])
-                broadcast(bytes(currentPlayer + " played " + str(myCard), "utf8"))
+                broadcastToOthers(bytes(currentPlayer + " played " + str(myCard) + "\n", "utf8"), currentPlayer, bytes("You played %s\n" % str(myCard), "utf8"))
                 if myCard.rank == '2':
                     players[nextPlayer].draw(2)
-                    broadcast(bytes(nextPlayer + " drew two cards! ", "utf8"))
+                    skipNextTurn = True
                 turnFlag = True
             else:
-                client.send(bytes("!You cannot play this card! Play a card from the same suit or rank. ", "utf8"))
+                client.send(bytes("You cannot play this card! Play a card from the same suit or rank.\n", "utf8"))
                 return
     else:
-        client.send(bytes("!Wait for your turn...", "utf8"))
+        client.send(bytes("Wait for your turn...\n", "utf8"))
 
 def drawCard(client, args):
     global bartokGame
     global turnFlag
     if bartokGame is None:
-        client.send(bytes("Wait for the game to start...", "utf8"))
+        client.send(bytes("Wait for the game to start...\n", "utf8"))
     elif clients[client] == currentPlayer:
         if (len(args) != 1):
-            client.send(bytes("Draw uses no arguments! Type {draw}.", "utf8"))
+            client.send(bytes("Draw uses no arguments! Type {draw}.\n", "utf8"))
         else:
             if unplayedDeck.isEmpty() and playedDeck.isEmpty():
-                client.send(bytes("Both played and unplayed decks are empty, skip the turn.", "utf8"))
+                client.send(bytes("Both played and unplayed decks are empty, skip the turn.\n", "utf8"))
             else:
                 players[currentPlayer].draw()
-                broadcast(bytes(currentPlayer + " drew one card!", "utf8"))
+                broadcastToOthers(bytes(currentPlayer + " drew one card!\n", "utf8"), currentPlayer, bytes("You drew one card!\n", "utf8"))
                 showHand(client, args)
             turnFlag = True
     else:
-        client.send(bytes("Wait for your turn...", "utf8"))
+        client.send(bytes("Wait for your turn...\n", "utf8"))
 
 def players(client, args):
     msg = "Current players: "
@@ -142,13 +143,13 @@ def players(client, args):
     for p in clients:
         msg = msg + str(clients[p]) + ", "
     msg = msg[0:-2]
-    client.send(bytes(msg, "utf8"))
+    client.send(bytes(msg + "\n", "utf8"))
 
 def playBartok(client, args):
     global bartokGame
     #  
     if bartokGame is None and len(clients) >= 4 and len(clients) <= 9:
-        broadcast(bytes("%s has decided to start a game of Bartok!\n" % clients[client], "utf8"))
+        broadcast(bytes("\n%s has decided to start a game of Bartok!\n\n" % clients[client], "utf8"))
         broadcast(bytes("There are %d players playing!\n" % len(clients), "utf8"))
         time.sleep(.5)
         broadcast(bytes("To play cards on your turn, write {play} followed by the card.\n", "utf8"))
@@ -166,14 +167,15 @@ def playBartok(client, args):
         playedDeck.addToDeck(unplayedDeck.draw())
         # playedDeck.addToDeck(Card("S", "7"))
         for p in clients:
-            showHand(p, [])
+            if clients[p] != currentPlayer:
+                showHand(p, [])
         bartokGame = make(OuterMachine("Welcome to the game!", len(clients)), bartokSpec)
     elif len(clients) < 4:
-        client.send(bytes("Not enough players to start!", "utf8"))
+        client.send(bytes("Not enough players to start!\n", "utf8"))
     elif len(clients > 9):
-        client.send(bytes("Too many players to start!", "utf8"))
+        client.send(bytes("Too many players to start!\n", "utf8"))
     else:
-        client.send(bytes("A game of bartok is currently occurring!", "utf8"))
+        client.send(bytes("A game of bartok is currently occurring!\n", "utf8"))
 
 def getHelp(client, args):
     client.send(bytes("To play cards on your turn, write {play} followed by the card.\n", "utf8"))
@@ -199,6 +201,7 @@ turnFlag = False
 victory = False
 currentPlayer = None
 nextPlayer = None
+skipNextTurn = False
 
 
 HOST = ''
@@ -236,14 +239,21 @@ class Turn(State):
     currSuit = 1
 
     def onEntry(self):
+        global skipNextTurn
         global currentPlayer
         global nextPlayer
         p = [clients[k] for k in clients]
         currentPlayer = p[self.currPlayer]
         nextPlayer = p[self.currPlayer + 1 if self.currPlayer < self.model.numPlayers - 1 else 0]
-        name = str(currentPlayer + " is up! ")
-        broadcastToOthers(bytes(name, "utf8"), currentPlayer, bytes("It's your turn!", "utf8"))
-        make(InnerMachine(name,self.currPlayer,self.currSuit),bartokTurnSpec).run()
+        
+        broadcast(bytes("\n<---------------------------------------->\n", "utf8"))
+        if skipNextTurn:
+            skipNextTurn = False
+            broadcastToOthers(bytes(currentPlayer + " drew two cards and skips a turn!\n", "utf8"), currentPlayer, bytes("You draw two cards and skip a turn!\n", "utf8"))
+        else:
+            name = str(currentPlayer + " is up!\n")
+            broadcastToOthers(bytes(name, "utf8"), currentPlayer, bytes("It's your turn!\n", "utf8"))
+            make(InnerMachine(name,self.currPlayer,self.currSuit),bartokTurnSpec).run()
 
     def onExit(self):
         if self.currPlayer < self.model.numPlayers - 1:
@@ -294,7 +304,7 @@ def bartokTurnSpec(m, s, t):
         while not turnFlag:
             pass
         if not players[currentPlayer].hand.cards:
-            broadcast(bytes("%s emptied their hand! They Win the Game." % currentPlayer, "utf8"))
+            broadcastToOthers(bytes("%s emptied their hand! They Win the Game.\n" % currentPlayer, "utf8"), currentPlayer, bytes("CONGRATULATIONS, YOU WIN THE GAME!\n", "utf8"))
             victory = True
             return False
         return True
