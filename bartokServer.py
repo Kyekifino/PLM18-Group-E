@@ -44,7 +44,7 @@ def handle_client(client):  # Takes client socket as argument.
         msglist = msg.split()
         if msglist[0] != "{quit}":
             if msglist[0] not in commands:
-                broadcast(bytes(msg, "utf8"), name+": ")
+                broadcast(bytes(msg + "\n", "utf8"), name+": ")
             else:
                 commands[msglist[0]](client, msglist)
         else:
@@ -85,7 +85,7 @@ def getStatus(client, args):
         client.send(bytes("You have " + str(len(players[currentPlayer].hand.cards)) + " cards.\n", "utf8"))
         for i in players.keys():
             if (i != currentPlayer):
-                client.send(bytes(players[i].name + " has " + str(len(players[currentPlayer].hand.cards)) + " cards.\n", "utf8"))
+                client.send(bytes(players[i].name + " has " + str(len(players[players[i].name].hand.cards)) + " cards.\n", "utf8"))
 
 def playSomeCards(client, args):
     global bartokGame

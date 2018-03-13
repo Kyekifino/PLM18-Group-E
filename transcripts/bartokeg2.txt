@@ -1,0 +1,67 @@
+//This is a transcript of a game of Bartok between four players: Reina, Liam, Archibald, and Driva. This transcript is all output on the
+//game screen from the perspective of the player Driva.
+// User's input is after '//'
+
+//joins the server
+Welcome to the Bartok server! Now type your name and press enter to join!
+//Zen
+Welcome Zen! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.
+//{start}
+Zen has decided to start a game of Bartok!
+
+There are 4 players playing!
+To play cards on your turn, write {play} followed by the card.
+For example, write "{play} H4" to play the 4 of Hearts.
+In order to play a card, the card must match either the rank or the suite of the displayed card.
+If you cannot play a card, you must draw. To draw the card, write {draw}
+To see your hand, write {hand}. To see the number of cards in each players hand, write {status}. For help, write {help}.
+Hand: [D10, DA, H2, S3, C5]
+
+<---------------------------------------->
+Aaron is up!
+Current card is D6.
+Aaron played DK
+
+<---------------------------------------->
+Lily is up!
+Current card is DK.
+Lily played DJ
+
+<---------------------------------------->
+Ruby is up!
+Current card is DJ.
+Ruby drew one card!
+
+<---------------------------------------->
+It's your turn!
+Current card is DJ.
+Hand: [D10, DA, H2, S3, C5]
+//{help}
+To play cards on your turn, write {play} followed by the card.
+For example, write "{play} H4" to play the 4 of Hearts.
+In order to play a card, the card must match either the rank or the suite of the displayed card.
+If you cannot play a card, you must draw. To draw the card, write {draw}
+To see your hand, write {hand}. To see the number of cards in each players hand, write {status}. For help, write {help}.
+//{status}
+You have 5 cards.
+Aaron has 4 cards.
+Lily has 4 cards.
+Ruby has 6 cards.
+//{hand}
+Hand: [D10, DA, H2, S3, C5]
+//{pla
+Zen: {pla
+//{play} HJ
+You don't have this card!
+//{play} DA D10
+You must play one card.
+//{play} H2
+You cannot play this card! Play a card from the same suit or rank.
+//{play} D10
+You played D10
+
+<---------------------------------------->
+Aaron is up!
+Current card is D10.
+
+//{quit}
