@@ -1,5 +1,5 @@
-//This is a transcript of a game of Bartok between four players: Reina, Liam, Archibald, and Driva. This transcript is all output on the
-//game screen from the perspective of the player Driva.
+//This is a transcript of a game of Bartok between four players: Aaron, Lily, Ruby, and Zen. This transcript is all output on the
+//game screen from the perspective of the player Zen.
 // User's input is after '//'
 
 //joins the server
