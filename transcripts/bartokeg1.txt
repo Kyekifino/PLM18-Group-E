@@ -1,98 +1,129 @@
-//This is a transcript of a game of Bartok between four players: Zen, Ruby, Aaron, and Lily. This transcript is all output on the game screen from the perspective of the player Aaron.
+//This is a transcript of a game of Bartok between four players: Reina, Liam, Archibald, and Driva. This transcript is all output on the
+//game screen from the perspective of the player Driva.
+// User's input is after '//'
 
+//joins the server
 Welcome to the Bartok server! Now type your name and press enter to join!
-Welcome Aaron! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.
-Lily has joined the chat!
-Lily has decided to start a game of Bartok!
+//Reina
+Another user has that name. Try again.
+//Driva
+Welcome Driva! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.
+
+Reina has decided to start a game of Bartok!
 
 There are 4 players playing!
-
 To play cards on your turn, write {play} followed by the card.
-
 For example, write "{play} H4" to play the 4 of Hearts.
 In order to play a card, the card must match either the rank or the suite of the displayed card.
 If you cannot play a card, you must draw. To draw the card, write {draw}
 To see your hand, write {hand}. To see the number of cards in each players hand, write {status}. For help, write {help}.
+Hand: [H9, DQ, S6, C2, CK]
 
-Hand: [D8, HQ, H4, C3, D6]
-Zen is up! 
-Current card is CK.
-
-Zen played C5
-Ruby is up! 
-Current card is C5.
-
-Ruby drew one card!
-It's your turn!
-Current card is C5.
-Hand: [D8, HQ, H4, C3, D6]
-//{play} C3
-Aaron played C3
-Lily is up! 
-Current card is C3.
-
-Lily drew one card!
-Zen is up! Current card is C3.
-
-Zen played H3
-Ruby is up! 
-Current card is H3.
-
-Ruby played HJ
-It's your turn!
+<---------------------------------------->
+Reina is up!
 Current card is HJ.
-Hand: [D8, HQ, H4, D6]
-//{play} HQ
-Aaron played HQ
-Lily is up! 
+Reina played HK
+
+<---------------------------------------->
+Liam is up!
+Current card is HK.
+Liam played HQ
+
+<---------------------------------------->
+Archibald is up!
 Current card is HQ.
+Archibald played SQ
 
-Lily played DQ
-Zen is up! 
+<---------------------------------------->
+It's your turn!
+Current card is SQ.
+Hand: [H9, DQ, S6, C2, CK]
+//{play} S6
+You played S6
+
+<---------------------------------------->
+Reina is up!
+Current card is S6.
+Reina drew one card!
+
+<---------------------------------------->
+Liam is up!
+Current card is S6.
+Liam played S2
+
+<---------------------------------------->
+Archibald drew two cards and skips a turn!
+
+<---------------------------------------->
+It's your turn!
+Current card is S2.
+Hand: [H9, DQ, C2, CK]
+//{play} C2
+You played C2
+
+<---------------------------------------->
+Reina drew two cards and skips a turn!
+
+<---------------------------------------->
+Liam is up!
+Current card is C2.
+Liam drew one card!
+
+<---------------------------------------->
+Archibald is up!
+Current card is C2.
+Archibald played CQ
+
+<---------------------------------------->
+It's your turn!
+Current card is CQ.
+Hand: [H9, DQ, CK]
+//{play} DQ
+You played DQ
+
+<---------------------------------------->
+Reina is up!
 Current card is DQ.
+Reina played DK
 
-Zen played D5
-Ruby is up! Current card is D5.
+<---------------------------------------->
+Liam is up!
+Current card is DK.
+Liam drew one card!
 
-Ruby played DJ
+<---------------------------------------->
+Archibald is up!
+Current card is DK.
+Archibald drew one card!
+
+<---------------------------------------->
 It's your turn!
-Current card is DJ.
-Hand: [D8, H4, D6]
-//{play} D8
-Aaron played D8
-Lily is up! 
-Current card is D8.
+Current card is DK.
+Hand: [H9, CK]
+//{play} CK
+You played CK
 
-Lily played D2
-Zen drew two cards! 
-Zen is up! 
-Current card is D2.
+<---------------------------------------->
+Reina is up!
+Current card is CK.
+Reina played C9
 
-Zen played D3
-Ruby is up! Current card is D3.
+<---------------------------------------->
+Liam is up!
+Current card is C9.
+Liam drew one card!
 
-Ruby drew one card!
+<---------------------------------------->
+Archibald is up!
+Current card is C9.
+Archibald played D9
+
+<---------------------------------------->
 It's your turn!
-Current card is D3.
-Hand: [H4, D6]
-//{play} D6
-Aaron played D6
-Lily is up! 
-Current card is D6.
-
-Lily played H6
-Zen is up! 
-Current card is H6.
-
-Zen drew one card!
-Ruby is up! Current card is H6.
-
-Ruby drew one card!
-It's your turn!
-Current card is H6.
-Hand: [H4]
-//{play} H4
-Aaron played H4
-
-Aaron emptied their hand! They Win the Game.
+Current card is D9.
+Hand: [H9]
+//{play} H9
+You played H9
+CONGRATULATIONS, YOU WIN THE GAME!
 Game over!
+
