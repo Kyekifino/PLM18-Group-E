@@ -12,8 +12,10 @@ def receive():
     while True:
         try:
             msg = client_socket.recv(BUFSIZ).decode("utf8")
+            msg_list.config(state=tkinter.NORMAL)
             msg_list.insert(tkinter.END, msg + "\n")
             msg_list.see(tkinter.END)
+            msg_list.config(state=tkinter.DISABLED)
         except OSError:  # Possibly client has left the chat.
             break
 
@@ -45,10 +47,12 @@ msg_list = tkinter.Text(messages_frame, height=20, width=75, yscrollcommand=scro
 scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
 msg_list.pack()
+msg_list.config(state=tkinter.DISABLED)
 messages_frame.pack()
 
 entry_field = tkinter.Entry(top, textvariable=my_msg, width=50)
 entry_field.bind("<Return>", send)
+entry_field.bind("<FocusIn>", lambda args: entry_field.delete('0', 'end'))
 entry_field.pack()
 send_button = tkinter.Button(top, text="Send", command=send)
 send_button.pack()

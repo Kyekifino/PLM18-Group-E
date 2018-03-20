@@ -1,4 +1,4 @@
-from cards import CardStack, Deck
+from Cards import CardStack, Deck
 
 unplayedDeck = Deck()
 playedDeck = Deck()

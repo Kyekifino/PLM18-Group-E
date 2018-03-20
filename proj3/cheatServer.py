@@ -37,7 +37,7 @@ def handle_client(client):  # Takes client socket as argument.
     welcome = 'Welcome %s! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.' % name
     client.send(bytes(welcome, "utf8"))
     msg = "%s has joined the chat!" % name
-    broadcast(bytes(msg, "utf8"))
+    broadcast(msg)
     clients[client] = name
 
     while True:
@@ -45,14 +45,14 @@ def handle_client(client):  # Takes client socket as argument.
         msglist = msg.split()
         if msglist[0] != "{quit}":
             if msglist[0] not in commands:
-                broadcast(bytes(msg, "utf8"), name+": ")
+                broadcast(msg, name+": ")
             else:
                 commands[msglist[0]](client, msglist)
         else:
             client.send(bytes("{quit}", "utf8"))
             client.close()
             del clients[client]
-            broadcast(bytes("%s has left the chat." % name, "utf8"))
+            broadcast("%s has left the chat." % name)
             break
 
 
@@ -60,7 +60,7 @@ def broadcast(msg, prefix=""):  # prefix is for name identification.
     """Broadcasts a message to all the clients."""
 
     for sock in clients:
-        sock.send(bytes(prefix, "utf8")+msg)
+        sock.send(bytes(prefix, "utf8") + bytes(msg, "utf8"))
 
 #----------------------------------------
 # Usable commands
@@ -84,7 +84,7 @@ def playSomeCards(client, args):
                 cardsPlayed.append(myCard)
         if len(cardsPlayed) > 0:
             players[currentPlayer].playCards(cardsPlayed)
-            broadcast(bytes(currentPlayer + " played " + str(len(cardsPlayed)) + " cards.", "utf8"))
+            broadcast(currentPlayer + " played " + str(len(cardsPlayed)) + " cards.")
             turnFlag = True
         else:
             client.send(bytes("You must play at least one card.", "utf8"))
@@ -103,29 +103,30 @@ def callCheat(client, args):
     global cheatFlag
     global cheating
     if cheatFlag:
-        broadcast(bytes("%s has called cheat... " % clients[client], "utf8"))
+        cheatFlag = False
+        broadcast("%s has called cheat... " % clients[client])
         if cheating:
-            broadcast(bytes("%s was cheating, and has to pick up the stack! " % currentPlayer, "utf8"))
+            broadcast("%s was cheating, and has to pick up the stack! " % currentPlayer)
             players[currentPlayer].takeAll()
         else:
-            broadcast(bytes("%s wasn't cheating... %s has to pick up the stack..." % (currentPlayer, clients[client]), "utf8"))
+            broadcast("%s wasn't cheating... %s has to pick up the stack..." % (currentPlayer, clients[client]))
             players[clients[client]].takeAll()
     else:
-        broadcast(bytes("Can't call cheat now.", "utf8"))
+        broadcast("Can't call cheat now.")
     return False
 
 
 def playCheat(client, args):
     global cheatGame
     if cheatGame is None and len(clients) >= 3:
-        broadcast(bytes("%s has decided to start a game of cheat!\n" % clients[client], "utf8"))
-        broadcast(bytes("There are %d players playing!\n" % len(clients), "utf8"))
+        broadcast("%s has decided to start a game of cheat!\n" % clients[client])
+        broadcast("There are %d players playing!\n" % len(clients))
         time.sleep(.5)
-        broadcast(bytes("To play cards on your turn, write {play} followed by the cards.\n", "utf8"))
-        broadcast(bytes("For example, write \"{play} H4 S4\" to play the 4 of Hearts and the 4 of Spades.\n", "utf8"))
-        broadcast(bytes("If you think a player played cards that aren't of the current rank, announce {cheat}\n", "utf8"))
-        broadcast(bytes("If they were lying, they have to pick up all the played cards... but if the weren't... you do!\n", "utf8"))
-        broadcast(bytes("To see your hand, write {hand}. For help, write {help}.\n", "utf8"))
+        broadcast("To play cards on your turn, write {play} followed by the cards.\n")
+        broadcast("For example, write \"{play} H4 S4\" to play the 4 of Hearts and the 4 of Spades.\n")
+        broadcast("If you think a player played cards that aren't of the current rank, announce {cheat}\n")
+        broadcast("If they were lying, they have to pick up all the played cards... but if the weren't... you do!\n")
+        broadcast("To see your hand, write {hand}. For help, write {help}.\n")
         time.sleep(.5)
         unplayedDeck.fillDeck()
         unplayedDeck.shuffle()
@@ -210,7 +211,7 @@ class Turn(State):
         p = [clients[k] for k in clients]
         currentPlayer = p[i.currPlayer]
         name = str(currentPlayer + " is up! ")
-        broadcast(bytes(name, "utf8"))
+        broadcast(name)
         victory = make(InnerMachine(name,i.currPlayer,i.currSuit),cheatTurnSpec).run()
 
     def onExit(i):
@@ -246,7 +247,7 @@ class GameOver(State):
         victory = False
         currentPlayer = None
         cardsPlayed = []
-        broadcast(bytes("Game over!\nSay {start} to play again!", "utf8"))
+        broadcast("Game over!\nSay {start} to play again!")
         return True
 
 #----------------------------------------
@@ -264,7 +265,7 @@ def cheatTurnSpec(m, s, t):
             m.currRank = "Q"
         if m.currRank == 13:
             m.currRank = "K"
-        broadcast(bytes("Current rank is %s. " % m.currRank, "utf8"))
+        broadcast("Current rank is %s. " % m.currRank)
         p = [k for k in clients]
         showHand(p[m.currPlayer], [])
         cardsPlayed = []
@@ -286,24 +287,25 @@ def cheatTurnSpec(m, s, t):
         for c in cardsPlayed:
             playedDeck.addToDeck(c)
         if not players[currentPlayer].hand.cards:
-            broadcast(bytes("%s emptied their hand!" % currentPlayer, "utf8"))
+            broadcast("%s emptied their hand!" % currentPlayer)
             time.sleep(1)
             if cheating:
-                broadcast(bytes("%s was cheating with their final play, and must pick up the deck!" % currentPlayer, "utf8"))
+                broadcast("%s was cheating with their final play, and must pick up the deck!" % currentPlayer)
                 players[currentPlayer].takeAll()
             else:
-                broadcast(bytes("%s wasn't cheating... and wins!" % currentPlayer, "utf8"))
+                broadcast("%s wasn't cheating... and wins!" % currentPlayer)
                 victory = True
                 return False
         else:
-            broadcast(bytes("You have five seconds to announce {cheat}.", "utf8"))
+            broadcast("You have five seconds to announce {cheat}.")
             cheatFlag = True
             def timeout():
                 cheatFlag = False
             t = Timer(5 , timeout)
             t.start()
             t.join()
-            broadcast(bytes("Time's up!", "utf8"))
+            if cheatFlag:
+                broadcast("Time's up!")
         time.sleep(1)
         return True
 
