@@ -6,21 +6,34 @@ from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 import tkinter
 
+nameSet = False
+top = tkinter.Tk()
+top.title("Bartok Game")
 
 def receive():
+    global nameSet
     """Handles receiving of messages."""
     while True:
         try:
             msg = client_socket.recv(BUFSIZ).decode("utf8")
-            msg_list.insert(tkinter.END, msg + "\n")
+            if "Another user has that name. Try again." in msg:
+                nameSet = False
+                top.title("Bartok Game")
+            msg_list.config(state=tkinter.NORMAL)
+            msg_list.insert(tkinter.END, msg)
             msg_list.see(tkinter.END)
+            msg_list.config(state=tkinter.DISABLED)
         except OSError:  # Possibly client has left the chat.
             break
 
 
 def send(event=None):  # event is passed by binders.
     """Handles sending of messages."""
+    global nameSet
     msg = my_msg.get()
+    if not nameSet:
+        top.title("Bartok Game: " + msg)
+        nameSet = True
     my_msg.set("")  # Clears input field.
     client_socket.send(bytes(msg, "utf8"))
     if msg == "{quit}":
@@ -33,8 +46,6 @@ def on_closing(event=None):
     my_msg.set("{quit}")
     send()
 
-top = tkinter.Tk()
-top.title("Chatter")
 
 messages_frame = tkinter.Frame(top)
 my_msg = tkinter.StringVar()  # For the messages to be sent.
@@ -45,10 +56,12 @@ msg_list = tkinter.Text(messages_frame, height=20, width=75, yscrollcommand=scro
 scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
 msg_list.pack()
+msg_list.config(state=tkinter.DISABLED)
 messages_frame.pack()
 
 entry_field = tkinter.Entry(top, textvariable=my_msg, width=50)
 entry_field.bind("<Return>", send)
+entry_field.bind("<FocusIn>", lambda args: entry_field.delete('0', 'end'))
 entry_field.pack()
 send_button = tkinter.Button(top, text="Send", command=send)
 send_button.pack()
