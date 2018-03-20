@@ -38,10 +38,10 @@ top.title("Chatter")
 
 messages_frame = tkinter.Frame(top)
 my_msg = tkinter.StringVar()  # For the messages to be sent.
-my_msg.set("Type your messages here.")
+my_msg.set("Your name here...")
 scrollbar = tkinter.Scrollbar(messages_frame)  # To navigate through past messages.
 # Following will contain the messages.
-msg_list = tkinter.Text(messages_frame, height=20, width=75, yscrollcommand=scrollbar.set)
+msg_list = tkinter.Text(messages_frame, height=20, width=75, yscrollcommand=scrollbar.set, wrap=tkinter.WORD)
 scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
 msg_list.pack()
@@ -56,7 +56,7 @@ send_button.pack()
 top.protocol("WM_DELETE_WINDOW", on_closing)
 
 #----Now comes the sockets part----
-HOST = "localhost"#input('Enter host: ')
+HOST = input('Enter host: ')
 PORT = 33000#input('Enter port: ')
 if not PORT:
     PORT = 33000
