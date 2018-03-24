@@ -1,0 +1,20 @@
+Game: "Weird Game"
+    Description: "This is a weird game, where player has one hand of their collected treasure, and one pile of their current cards"
+    Players: 
+        NumberOfPlayers: 4
+        Hands: oneHand, visible AND twoHand, not visible
+    OnStart: "Hehe start the game" 
+        NumberOfCards: 4
+        Decks: oneDeck, visible, empty AND twoDeck, not visible, full deck
+    OnTurn: 
+        CardsPerTurn: givenCard, visible
+        Conflict: conflictCard IS last card of {{oneDeck}}
+        Rules:
+            IF rank of {{givenCard}} more than rank of {{conflictCard}} OR (rank of {{givenCard}} equals two AND rank of {{conflictCard}} card equals ACE)
+            THEN draw all from {{oneDeck}} to {{oneHand}}
+            THEN draw 1 cards from {{twoDeck}} to {{twoHand}}
+            OTHERWISE put {{givenCard}} to {{oneDeck}} AND draw 1 cards from {{twoDeck}} to {{twoHand}}
+    WinCondition:
+        Rules:
+            IF length of {{twoDeck}} equals 0 AND ({{oneHand}} plus {{twoHand}} deck is full deck OR player has the most cards)
+    Help: "No help for losers!"
