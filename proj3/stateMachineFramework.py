@@ -1,5 +1,6 @@
 # vim: set filetype=python ts=2 sw=2 sts=2 expandtab:
 import sys, re, traceback, time, random
+from testFramework import testFramework
 
 
 def rseed(seed=1):
@@ -9,31 +10,6 @@ def rseed(seed=1):
 def shuffle(lst):
     random.shuffle(lst)
     return lst
-
-
-def about(f):
-    print("\n-----| %s |-----------------" % f.__name__)
-    if f.__doc__:
-        print("# " + re.sub(r'\n[ \t]*', "\n# ", f.__doc__))
-
-
-TRY = FAIL = 0
-
-
-def testFramework(f=None):
-    global TRY, FAIL
-    if f:
-        try:
-            TRY += 1; about(f); f(); print("# pass");
-        except:
-            FAIL += 1; print(traceback.format_exc());
-        return f
-    else:
-        print("\n# %s TRY= %s ,FAIL= %s ,%%PASS= %s" % (
-            time.strftime("%d/%m/%Y, %H:%M:%S,"),
-            TRY, FAIL,
-            int(round((TRY - FAIL) * 100 / (TRY + 0.001)))))
-
 
 def contains(all, some):
     return all.find(some) != -1
@@ -90,7 +66,7 @@ class State(Thing):
         i._trans += [o(gaurd=gaurd, there=there)]
 
     def step(i):
-        for j in shuffle(i._trans):
+        for j in i._trans:
             if j.gaurd(i):
                 #print("now", j.gaurd.__name__)
                 i.onExit()
@@ -111,13 +87,13 @@ class State(Thing):
 # All code inside this block is just an example for this test implementation!
 
 # Example for outer class to use for turn control
-"""class NewTurn(State):
+""" class NewTurn(State):
     tag = "*"
     currPlayer = 1
 
     def onEntry(i):
         name = "Player " + str(i.currPlayer) + " is up!"
-        make(InnerMachine(name,i.currPlayer),
+        make(InnerMachine(name,i.currPlayer,5),
             spec001).run()
 
     def onExit(i):
@@ -187,24 +163,25 @@ class Machine(Thing):
 # Create with win condition specs to allow player control
 class OuterMachine(Machine):
 
-    def __init__(i, name, numPlayers):
+    def __init__(i, name, numPlayers, game):
         i.all = {}
         i.name = name
         i.start = None
         i.numPlayers = numPlayers
         i.repeat = 0
+        i.game = game
 
 
 
 # Create with specs to simulate a turn
 class InnerMachine(Machine):
 
-    def __init__(i, name, currPlayer, currRank):
+    def __init__(i, name, currPlayer, game):
         i.all = {}
         i.name = name
         i.start = None
         i.currPlayer = currPlayer
-        i.currRank = currRank
+        i.game = game
 
 
 # ---------------------------------------
@@ -218,7 +195,7 @@ def make(machine, specification):
 # Test specs to show how to create machines
 # and implement rules
 # ------------------------------------------
-
+"""
 def spec001(m, s, t):
     def rain(i): return random.random() < 0.3
     def sunny(i): return random.random() < 0.6
@@ -253,7 +230,7 @@ def spec002(m, s, t):
     t("start", m.true, player)
     t(player, m.repeat, player)
     t(player, m.leave, exit)
-"""
+
 @testFramework
 def nestedMachine():
     make(OuterMachine("Welcome to the game!", 5),

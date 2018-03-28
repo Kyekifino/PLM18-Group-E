@@ -10,12 +10,14 @@ class Card(object):
     def __repr__(self):
         return str(self.suit) + str(self.rank)
     def __str__(self):
-        return str(self.suit) + str(self.rank)
+        return self.__repr__()
     def __eq__(self, other):
         if isinstance(other, self.__class__):
             return self.__dict__ == other.__dict__
         else:
             return False
+    def isFace(self):
+        return rank in ["A", "J", "Q", "K"]
 
 class cardStack(object):
     """Represents any such stack of cards."""
@@ -24,15 +26,14 @@ class cardStack(object):
         self.cards = []
         self.isVisible = True
     def __str__(self):
-        str = ""
-        for card in self.cards:
-            str = str + card + ", "
-        return str[0:-2]
+        return self.__repr__()
     def __repr__(self):
-        str = ""
+        s = ""
         for card in self.cards:
-            str = str + card + ", "
-        return str[0:-2]
+            s = s + str(card) + ", "
+        return s[0:-2]
+    def size(self):
+        return len(self.cards)
 
 class Deck(cardStack):
     """Represents a deck of cards."""
@@ -45,7 +46,7 @@ class Deck(cardStack):
 
     def lastCard(self):
         return self.cards[len(self.cards) - 1]
-    
+
     def changeVisibility(self):
         if self.isVisible:
             self.isVisible = False
@@ -63,27 +64,11 @@ class Deck(cardStack):
         self.cards.append(c)
 
     def fillDeck(self):
+        suits = "H D C S".split(" ")
+        ranks = "A 2 3 4 5 6 7 8 9 10 J Q K".split(" ")
         if not self.cards:
-            for suit in range(4):
-                for rank in range(1, 14):
-                    if suit == 0:
-                        suit = "H"
-                    if suit == 1:
-                        suit = "D"
-                    if suit == 2:
-                        suit = "C"
-                    if suit == 3:
-                        suit = "S"
-                    if rank == 1:
-                        rank = "A"
-                    elif rank == 11:
-                        rank = "J"
-                    elif rank == 12:
-                        rank = "Q"
-                    elif rank == 13:
-                        rank = "K"
-                    else:
-                        rank = str(rank)
+            for suit in suits:
+                for rank in ranks:
                     card = Card(suit, rank)
                     self.cards.append(card)
 

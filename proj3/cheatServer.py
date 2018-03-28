@@ -138,7 +138,7 @@ def playCheat(client, args):
                     players[p].draw()
         for p in clients:
             showHand(p, [])
-        cheatGame = make(OuterMachine("Welcome to the game!", len(clients)), cheatSpec)
+        cheatGame = make(OuterMachine("Welcome to the game!", len(clients), None), cheatSpec)
     elif len(clients) < 3:
         client.send(bytes("Not enough players to start!", "utf8"))
     else:
@@ -257,6 +257,7 @@ def cheatTurnSpec(m, s, t):
     def waitForCards(i):
         global cardsPlayed
         global turnFlag
+        m.currRank = m.game
         if m.currRank == 1:
             m.currRank = "A"
         if m.currRank == 11:
@@ -279,6 +280,7 @@ def cheatTurnSpec(m, s, t):
         global cheating
         global victory
         cheating = False
+        m.currRank = m.game
         for c in cardsPlayed:
             if str(c.rank) != str(m.currRank):
                 print(c.rank, m.currRank)
