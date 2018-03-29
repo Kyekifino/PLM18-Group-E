@@ -1,24 +1,45 @@
 from Cards import *
 from stateMachineFramework import *
 from testFramework import testFramework
+from player import *
+from time import *
 
 
 # Inheritance-based implementation based on Group F (https://github.com/ejgillia/plm18_f)
 
 class Game(object):
 
-  def __init__(self, server, players):
+  def __init__(self, players):
     #---------------------------------------------------
-    # Server is the server on which the game is played
     # Players is the list of players in the game
     #---------------------------------------------------
 
     self.deck = Deck()
     self.deck.fillDeck();
+    self.playing = False
+    # Extend with a dictionary of actions for a player to use
+    self.actions = {}
 
-    self.numPlayers = len(players)
     self.players = players
     self.nextPlayer = iter(self.nextPlayerIterFunc())
+    self.currentPlayer = next(self.nextPlayer)
+
+  # Parses whether a player input is an action. If so, run the action.
+  # If not, broadcast the message.
+  def parseAction(self, player, msg):
+    msglist = msg.split()
+    if msglist[0] in self.actions:
+      self.actions[msglist[0]](player, msglist)
+    else:
+      self.broadcast(msg, player.name+": ")
+
+  def broadcast(self, msg, prefix=""):  # prefix is for name identification.
+    # Broadcasts a message to all the clients.
+    for p in self.players:
+        p.tell(prefix + msg)
+
+  def wait(self, sleepTime):
+      sleep(sleepTime)
 
   #----------------------------------------
   # Iterator to return next player
@@ -27,7 +48,7 @@ class Game(object):
       currPlayer = 0;
       while True:
         yield self.players[currPlayer]
-        if (currPlayer < (self.numPlayers - 1)):
+        if (currPlayer < (len(self.players) - 1)):
           currPlayer = currPlayer + 1
         else:
           currPlayer = 0
@@ -49,7 +70,6 @@ class Game(object):
     def quit(i):
         return True
     def onExit(i):
-        print("Turn over")
         return i.model.game.checkForVictory(i)
 
   #--------------------------------------------
@@ -103,6 +123,7 @@ class Game(object):
         return True
     def onExit(i):
         i.model.game.endGame(i)
+        i.model.game.playing = False
 
   #--------------------------------------------
   # State machine to abstractly define the game.
@@ -122,39 +143,38 @@ class Game(object):
 
   #-------------------------------------------
   # Methods to be extended by implementation.
-  # Use to define flow of the game.
+  # Use to define what happens before and after
+  # the game.
   #-------------------------------------------
   def pregameActions(self, i):
     print("Game started")
     return True
 
-  def runTurn(self, i):
-    p = self.nextPlayer.next()
-    return make(InnerMachine(p + "\'s turn.",p,self),self.turnSpec).run()
-
-  def runGame(self):
-    make(OuterMachine("Welcome to the game!", self.numPlayers, self),self.gameSpec).run()
-
   def endGame(self, i):
     print("Game completed")
 
+  #--------------------------------------------
+  # Methods to control the state machines.
+  # Can be extended but shouldn't be.
+  #--------------------------------------------
 
+  def runTurn(self, i):
+     self.currentPlayer = next(self.nextPlayer)
+     return make(InnerMachine(self.currentPlayer.name + "\'s turn.",self.currentPlayer,self),self.turnSpec).run()
+
+
+  def runGame(self):
+    self.playing = True
+    make(OuterMachine("Welcome to the game!", len(self.players), self),self.gameSpec).run()
+
+"""
 #----------------------------------------
 # Tests
 #----------------------------------------
-@testFramework
-def tryIterator():
-    game = Game(None, [1,2,3,4])
-    print(game.nextPlayer.next())
-    print(game.nextPlayer.next())
-    print(game.nextPlayer.next())
-    print(game.nextPlayer.next())
-    print(game.nextPlayer.next())
-    print(game.nextPlayer.next())
 
 @testFramework
 def tryGame():
-    game = Game(None, ["Tom", "Dick", "Harry"])
+    game = Game(None)
     game.runGame()
 
 
@@ -163,3 +183,4 @@ def tryGame():
 if __name__ == "__main__":
     rseed()
     testFramework()
+"""
