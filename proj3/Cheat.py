@@ -99,7 +99,7 @@ class Cheat(Game):
   # Defining game rules
   #---------------------------------------------------
 
-  def pregameActions(self, i):
+  def pregameActions(self):
     # Set to players
     self.nextPlayer = iter(self.nextPlayerIterFunc())
     # Make game announcements
@@ -115,7 +115,7 @@ class Cheat(Game):
         self.currentPlayer.addToHand(self.deck.draw())
     return True
 
-  def preplayGuards(self, i):
+  def preplayGuards(self):
     self.currentRank = next(self.nextRank)
     self.broadcast("It is %s\'s turn!" % self.currentPlayer.name)
     self.wait(.25)
@@ -124,13 +124,13 @@ class Cheat(Game):
     self.showHand(self.currentPlayer, None)
     return True
 
-  def doPlay(self, i):
+  def doPlay(self):
     while not self.playFlag:
         pass
     self.playFlag = False
     return True
 
-  def postplayGuards(self, i):
+  def postplayGuards(self):
     cheating = False
     for c in self.bufferDeck.cards:
       self.discard += c
@@ -161,10 +161,10 @@ class Cheat(Game):
         self.broadcast("The discard pile has %d cards in it." % self.discard.size())
     return True
 
-  def checkForVictory(self, i):
+  def checkForVictory(self):
     return self.currentPlayer.hand.isEmpty()
 
-  def endGame(self, i):
+  def endGame(self):
     self.wait(1)
     self.broadcast(self.currentPlayer.name + " has emptied their hand, and wins!")
     self.broadcast("Thanks for playing!")

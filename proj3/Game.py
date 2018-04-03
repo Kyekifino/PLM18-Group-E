@@ -70,7 +70,7 @@ class Game(object):
     def quit(i):
         return True
     def onExit(i):
-        return i.model.game.checkForVictory(i)
+        return i.model.game.checkForVictory()
 
   #--------------------------------------------
   # State machine to abstractly define a turn.
@@ -94,19 +94,19 @@ class Game(object):
   # Methods to be extended by implementation.
   # Use to define rules of the game.
   #-------------------------------------------
-  def startGuards(self, i):
+  def startGuards(self):
     return True
 
-  def preplayGuards(self, i):
+  def preplayGuards(self):
     return True
 
-  def doPlay(self, i):
+  def doPlay(self):
     return True
 
-  def postplayGuards(self, i):
+  def postplayGuards(self):
     return True
 
-  def checkForVictory(self, i):
+  def checkForVictory(self):
     return True
 
 
@@ -122,7 +122,7 @@ class Game(object):
     def quit(i):
         return True
     def onExit(i):
-        i.model.game.endGame(i)
+        i.model.game.endGame()
         i.model.game.playing = False
 
   #--------------------------------------------
@@ -146,11 +146,11 @@ class Game(object):
   # Use to define what happens before and after
   # the game.
   #-------------------------------------------
-  def pregameActions(self, i):
+  def pregameActions():
     print("Game started")
     return True
 
-  def endGame(self, i):
+  def endGame():
     print("Game completed")
 
   #--------------------------------------------
@@ -158,7 +158,7 @@ class Game(object):
   # Can be extended but shouldn't be.
   #--------------------------------------------
 
-  def runTurn(self, i):
+  def runTurn(self):
      self.currentPlayer = next(self.nextPlayer)
      return make(InnerMachine(self.currentPlayer.name + "\'s turn.",self.currentPlayer,self),self.turnSpec).run()
 
