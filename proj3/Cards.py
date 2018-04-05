@@ -96,5 +96,16 @@ class Deck(cardStack):
           else:
               currPlayer = 0
 
+    def dealCards(self, players, numCards):
+      currPlayer = 0
+      cardsDealt = 0
+      while cardsDealt < (numCards*len(players)) and not self.isEmpty:
+          players[currPlayer].addToHand(self.draw())
+          if currPlayer < (len(players) - 1):
+              currPlayer += 1
+          else:
+              currPlayer = 0
+          cardsDealt += 1
+
     def resetDeck(self):
         self.empty()

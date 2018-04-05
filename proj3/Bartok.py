@@ -99,7 +99,7 @@ class Bartok(Game):
   # Defining game rules
   #---------------------------------------------------
 
-  def pregameActions(self, i):
+  def pregameActions(self):
     # Set to players
     self.nextPlayer = iter(self.nextPlayerIterFunc())
     # Make game announcements
@@ -110,38 +110,33 @@ class Bartok(Game):
         self.getHelp(p, None)
     self.wait(2)
     self.deck.shuffle()
-    while not self.deck.isEmpty():
-        for p in self.players:
-            for i in range(5):
-                p.addToHand(self.deck.draw())
+    self.deck.dealCards(self.players, 5)
     return True
 
-  def preplayGuards(self, i):
-    self.currentRank = next(self.nextRank)
+  def preplayGuards(self):
     self.broadcast("It is %s\'s turn!" % self.currentPlayer.name)
     self.wait(.25)
-    self.broadcast("The rank this turn is " + self.currentRank + ".")
     self.broadcast("Current card is " + str(self.played.lastCard()))
     self.wait(1)
     self.showHand(self.currentPlayer, None)
     return True
 
-  def doPlay(self, i):
+  def doPlay(self):
     while not self.playFlag:
         pass
     self.playFlag = False
     return True
 
-  def postplayGuards(self, i):
+  def postplayGuards(self):
     if self.played.lastCard().rank == 2:
         self.currentPlayer = self.nextPlayer
     return True
 
 
-  def checkForVictory(self, i):
+  def checkForVictory(self):
     return self.currentPlayer.hand.isEmpty()
 
-  def endGame(self, i):
+  def endGame(self):
     self.wait(1)
     self.broadcast(self.currentPlayer.name + " has emptied their hand, and wins!")
     self.broadcast("Thanks for playing!")
