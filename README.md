@@ -1,5 +1,6 @@
 # PLM18-Group-E
 Group E for Programming Languages and Modeling
+Note: These instructions are for the version under the proj3 folder.
 
 Dickerson Thomas
 
@@ -31,7 +32,7 @@ python3 .\cheatServer.py
 On other consoles:
 
 ```
-python3 .\cheatClient.py
+python3 .\GameClient.py
 Enter host: [Enter the LAN ip address of the host computer]
 ```
 # Bartok
@@ -58,7 +59,7 @@ python3 .\bartokServer.py
 On other consoles:
 
 ```
-python3 .\bartokClient.py
+python3 .\GameClient.py
 Enter host: [Enter the LAN ip address of the host computer]
 ```
 
