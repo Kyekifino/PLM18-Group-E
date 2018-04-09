@@ -3,8 +3,10 @@
 """Server for multithreaded (asynchronous) chat application."""
 from socket import AF_INET, socket, SOCK_STREAM, timeout
 from threading import Thread, Timer
-from player import *
+from player import Player
 
+#----------------------------------------
+# Import a class of the game
 #----------------------------------------
 gameName = input("Name of the game? ")
 GameClass = ""
@@ -15,17 +17,20 @@ while attempts > 0:
         _temp = __import__(gameName, globals(), locals(), [gameName])
         GameClass = getattr(_temp, gameName)
         break;
-    except ModuleNotFoundError:
+    except:
         print('Use a valid game name without .py')
         gameName = input("Name of the game? ")
         attempts -= 1
         continue
-    except:
-        print('An error occured.')
-        raise SystemExit
 
-game = None
+if (attempts == 0 and GameClass == ""):
+    print('Try again.')
+    quit()
 #----------------------------------------
+# Server side communication
+#----------------------------------------
+game = None
+
 def accept_incoming_connections():
     """Sets up handling for incoming clients."""
     global game
