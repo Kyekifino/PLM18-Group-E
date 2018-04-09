@@ -50,7 +50,6 @@ class Bartok(Game):
       player.tell(msg[:-1])
 
   def playCards(self, player, msglist):
-
       if not self.playing:
           player.tell("Wait for the game to start...")
       elif player != self.currentPlayer:
@@ -64,17 +63,17 @@ class Bartok(Game):
               card = Card(str(card[0]),str(card[1:]))
               playedCards.append(card)
           try:
-              if playedCards[0].rank == self.played.lastCard().rank or playedCards.suit == self.played.lastCard().suit:
+              if playedCards[0].rank == self.played.lastCard().rank or playedCards[0].suit == self.played.lastCard().suit:
                   player.playFromHand(playedCards, self.played)
-                  self.broadcast(self.currentPlayer + " played " + str(playedCards[0]))
-                  if playedCards[0].rank == '2':
-                      self.nextPlayer.draw(2)
-                      skipNextTurn = True
+                  self.broadcast(str(self.currentPlayer) + " played " + str(playedCards[0]))
+                #   if playedCards[0].rank == '2':
+                #       self.nextPlayer.addToHand(self.deck.draw())
+                #       self.nextPlayer.addToHand(self.deck.draw())
+                #       self.skipNextTurn = True
                   self.playFlag = True
               else:
                   player.tell("You cannot play this card! Play a card from the same suit or rank.")
                   return
-              player.playFromHand(playedCards, self.bufferDeck)
               self.broadcast("They currently hold " + str(player.hand.size()) + " cards.")
 
           except NotInStackException:
@@ -92,8 +91,9 @@ class Bartok(Game):
               if self.deck.isEmpty() and self.played.isEmpty():
                   player.tell("Both played and unplayed decks are empty, skip the turn.")
               else:
-                  self.players[self.currentPlayer].draw()
-                  self.broadcast(self.currentPlayer + " drew one card!")
+                  self.currentPlayer.addToHand(self.deck.draw())
+                  self.broadcast(str(self.currentPlayer) + " drew one card!")
+                  self.playFlag = True
 
   #---------------------------------------------------
   # Defining game rules
@@ -102,6 +102,7 @@ class Bartok(Game):
   def pregameActions(self):
     # Set to players
     self.nextPlayer = iter(self.nextPlayerIterFunc())
+
     # Make game announcements
     self.broadcast("The Bartok Game is starting!")
     self.broadcast("There are %d players playing!" % len(self.players))
@@ -111,6 +112,7 @@ class Bartok(Game):
     self.wait(2)
     self.deck.shuffle()
     self.deck.dealCards(self.players, 5)
+    self.played.addToDeck(self.deck.draw())
     return True
 
   def preplayGuards(self):
@@ -128,8 +130,8 @@ class Bartok(Game):
     return True
 
   def postplayGuards(self):
-    if self.played.lastCard().rank == 2:
-        self.currentPlayer = self.nextPlayer
+    # if self.played.lastCard().rank == 2:
+    #     self.currentPlayer = self.nextPlayer
     return True
 
 
@@ -138,5 +140,5 @@ class Bartok(Game):
 
   def endGame(self):
     self.wait(1)
-    self.broadcast(self.currentPlayer.name + " has emptied their hand, and wins!")
+    self.broadcast(str(self.currentPlayer) + " has emptied their hand, and wins!")
     self.broadcast("Thanks for playing!")

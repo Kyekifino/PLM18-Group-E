@@ -13,6 +13,9 @@ class Player(object):
         else:
             return False
 
+    def __repr__(self):
+        return self.name;
+
     def getHand(self):
         return str(self.hand.cards)
 

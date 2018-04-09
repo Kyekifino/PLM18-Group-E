@@ -99,7 +99,7 @@ class Deck(cardStack):
     def dealCards(self, players, numCards):
       currPlayer = 0
       cardsDealt = 0
-      while cardsDealt < (numCards*len(players)) and not self.isEmpty:
+      while cardsDealt < (numCards*len(players)) and len(self.cards) > 0:
           players[currPlayer].addToHand(self.draw())
           if currPlayer < (len(players) - 1):
               currPlayer += 1
