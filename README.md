@@ -1,6 +1,7 @@
 # PLM18-Group-E
 Group E for Programming Languages and Modeling
-Note: These instructions are for the version under the proj3 folder.
+
+*Note: These instructions are for the version under the proj3 folder.*
 
 Dickerson Thomas
 
