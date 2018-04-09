@@ -1,14 +1,31 @@
 #!/usr/bin/env python3
-
 #Boiler plate code taken from https://medium.com/swlh/lets-write-a-chat-app-in-python-f6783a9ac170
 """Server for multithreaded (asynchronous) chat application."""
 from socket import AF_INET, socket, SOCK_STREAM, timeout
 from threading import Thread, Timer
-from Cheat import *
 from player import *
 
-game = None
+#----------------------------------------
+gameName = input("Name of the game? ")
+GameClass = ""
+attempts = 20
 
+while attempts > 0:
+    try:
+        _temp = __import__(gameName, globals(), locals(), [gameName])
+        GameClass = getattr(_temp, gameName)
+        break;
+    except ModuleNotFoundError:
+        print('Use a valid game name without .py')
+        gameName = input("Name of the game? ")
+        attempts -= 1
+        continue
+    except:
+        print('An error occured.')
+        raise SystemExit
+
+game = None
+#----------------------------------------
 def accept_incoming_connections():
     """Sets up handling for incoming clients."""
     global game
@@ -17,7 +34,7 @@ def accept_incoming_connections():
             client, client_address = SERVER.accept()
             if game is None or game.playing is False:
                 print("%s:%s has connected." % client_address)
-                client.send(bytes("Welcome to the Cheat server! Now type your name and press enter to join!", "utf8"))
+                client.send(bytes("Welcome to the " + gameName + " server! Now type your name and press enter to join!", "utf8"))
                 Thread(target=handle_client, args=(client,)).start()
             else:
                 client.send(bytes("A game is in session. Please come back later...", "utf8"))
@@ -30,8 +47,6 @@ def wait_for_game():
         pass
     game.runGame()
 
-
-
 def handle_client(client):  # Takes client socket as argument.
     global game
     """Handles a single client connection."""
@@ -39,7 +54,7 @@ def handle_client(client):  # Takes client socket as argument.
 
     if game is None:
         p = Player(name, client)
-        game = Cheat([p])
+        game = GameClass([p])
     else:
         while name in [p.name for p in game.players]:
             client.send(bytes("Another user has that name. Try again.", "utf8"))

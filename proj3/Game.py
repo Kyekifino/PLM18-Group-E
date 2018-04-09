@@ -67,10 +67,10 @@ class Game(object):
     tag = "$"
   class EndPhase(State): #End the turn
     tag = "%"
-    def quit(i):
+    def quit(self):
         return True
-    def onExit(i):
-        return i.model.game.checkForVictory()
+    def onExit(self):
+        return self.model.game.checkForVictory()
 
   #--------------------------------------------
   # State machine to abstractly define a turn.
@@ -119,11 +119,11 @@ class Game(object):
     tag = "&"
   class GameOver(State):
     tag = "*"
-    def quit(i):
+    def quit(self):
         return True
-    def onExit(i):
-        i.model.game.endGame()
-        i.model.game.playing = False
+    def onExit(self):
+        self.model.game.endGame()
+        self.model.game.playing = False
 
   #--------------------------------------------
   # State machine to abstractly define the game.
@@ -146,11 +146,11 @@ class Game(object):
   # Use to define what happens before and after
   # the game.
   #-------------------------------------------
-  def pregameActions():
+  def pregameActions(self):
     print("Game started")
     return True
 
-  def endGame():
+  def endGame(self):
     print("Game completed")
 
   #--------------------------------------------

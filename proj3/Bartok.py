@@ -129,12 +129,6 @@ class Bartok(Game):
     self.playFlag = False
     return True
 
-  def postplayGuards(self):
-    # if self.played.lastCard().rank == 2:
-    #     self.currentPlayer = self.nextPlayer
-    return True
-
-
   def checkForVictory(self):
     return self.currentPlayer.hand.isEmpty()
 
