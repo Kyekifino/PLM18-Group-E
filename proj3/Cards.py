@@ -1,4 +1,3 @@
-# For use in setting up various card games.
 from random import shuffle
 
 class NotInStackException(Exception):
@@ -16,8 +15,8 @@ class Card(object):
     def __init__(self, suit, rank):
         self.suit = suit
         self.rank = rank
-    def __iter__(self):
-        return self
+    # def __iter__(self):
+    #     return self
     def __repr__(self):
         return str(self.suit) + str(self.rank)
     def __str__(self):
@@ -28,9 +27,9 @@ class Card(object):
         else:
             return False
     def isFace(self):
-        return rank in ["A", "J", "Q", "K"]
+        return self.rank in ["A", "J", "Q", "K"]
 
-class cardStack(object):
+class CardStack(object):
     """Represents any such stack of cards."""
     def __init__(self):
         self.cards = []
@@ -65,7 +64,7 @@ class cardStack(object):
     def empty(self):
         self.cards = []
 
-class Deck(cardStack):
+class Deck(CardStack):
     """Represents a deck of cards."""
 
     def shuffle(self):

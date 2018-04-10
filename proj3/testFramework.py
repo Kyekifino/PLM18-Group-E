@@ -1,6 +1,6 @@
 # vim: set filetype=python ts=2 sw=2 sts=2 expandtab:
 
-import traceback, time
+import traceback, time, re
 
 def about(f):
     print("\n-----| %s |-----------------" % f.__name__)

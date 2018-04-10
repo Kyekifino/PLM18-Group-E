@@ -43,9 +43,6 @@ def asLambda(self, txt):
     for one in methodsOf(self):
         txt = re.sub(one, 'z.%s()' % one, txt)
     txt = "lambda z: " + txt
-    code = eval(txt)
-    # e.g. print("> ",code(self))
-
 
 # ---------------------------------------
 # <BEGIN>

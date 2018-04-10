@@ -15,17 +15,19 @@ attempts = 20
 while attempts > 0:
     try:
         _temp = __import__(gameName, globals(), locals(), [gameName])
-        GameClass = getattr(_temp, gameName)
-        break;
+        GameClass = getattr(_temp, gameName.title())
+        break
     except:
         print('Use a valid game name without .py')
         gameName = input("Name of the game? ")
         attempts -= 1
         continue
 
+#Exit if attempted 20 times so we don't have to use a whie True
 if (attempts == 0 and GameClass == ""):
     print('Try again.')
     quit()
+
 #----------------------------------------
 # Server side communication
 #----------------------------------------

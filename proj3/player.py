@@ -1,10 +1,13 @@
-from Cards import *
+from cards import CardStack, NotInStackException
 
+#---------------------------------------------------
+# Defining game actions
+#---------------------------------------------------
 class Player(object):
     """Represents a player object"""
     def __init__(self, name, conn):
         self.name = name
-        self.hand = cardStack()
+        self.hand = CardStack()
         self.connection = conn
 
     def __eq__(self, other):

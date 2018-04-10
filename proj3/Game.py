@@ -1,31 +1,26 @@
-from Cards import *
-from stateMachineFramework import *
+from cards import Deck
+from stateMachineFramework import State, InnerMachine, OuterMachine, make
 from testFramework import testFramework
-from player import *
-from time import *
-
+from time import sleep
 
 # Inheritance-based implementation based on Group F (https://github.com/ejgillia/plm18_f)
-
 class Game(object):
 
+  #----------------------------------------
+  # Constructs a Game object
+  #----------------------------------------
   def __init__(self, players):
-    #---------------------------------------------------
-    # Players is the list of players in the game
-    #---------------------------------------------------
-
     self.deck = Deck()
     self.deck.fillDeck();
     self.playing = False
-    # Extend with a dictionary of actions for a player to use
     self.actions = {}
-
     self.players = players
     self.nextPlayer = iter(self.nextPlayerIterFunc())
     self.currentPlayer = next(self.nextPlayer)
 
-  # Parses whether a player input is an action. If so, run the action.
-  # If not, broadcast the message.
+  #----------------------------------------
+  # Parses whether a player input is an action.
+  #----------------------------------------
   def parseAction(self, player, msg):
     msglist = msg.split()
     if msglist[0] in self.actions:
@@ -33,11 +28,16 @@ class Game(object):
     else:
       self.broadcast(msg, player.name+": ")
 
-  def broadcast(self, msg, prefix=""):  # prefix is for name identification.
-    # Broadcasts a message to all the clients.
+  #----------------------------------------
+  # Broadcast a message to all the clients
+  #----------------------------------------
+  def broadcast(self, msg, prefix=""):
     for p in self.players:
         p.tell(prefix + msg)
 
+  #----------------------------------------
+  # Sleep for given time
+  #----------------------------------------
   def wait(self, sleepTime):
       sleep(sleepTime)
 

@@ -1,7 +1,8 @@
-from Game import *
-from Cards import *
+from game import Game
+from time import time
+from cards import Deck, Card, CardStack, NotInStackException, ranks
 from testFramework import testFramework
-from player import *
+from player import Player
 
 # Implementation of Cheat as a Game
 
@@ -17,7 +18,7 @@ class Cheat(Game):
       # Discard pile used to pick up with cheat moves
       self.discard = Deck()
       # Buffer deck to hold cards while cheaters may cheat
-      self.bufferDeck = cardStack()
+      self.bufferDeck = CardStack()
       # Dictionary to define possible actions to take
       self.actions = { "{players}" : self.getPlayers,
                  "{start}" : self.playCheat,
