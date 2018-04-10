@@ -3,11 +3,11 @@ Group E for Programming Languages and Modeling
 
 *Note: These instructions are for the version under the proj3 folder.*
 
-Dickerson Thomas
+Dickerson, Thomas
 
-Egorova Anastasia
+Egorova, Anastasia
 
-Cassandra Keesee
+Cassandra, Keesee
 
 # Cheat
 
@@ -27,13 +27,14 @@ On the "host" computer:
 
 Open a command shell. On Windows type ipconfig, on Mac type ifconfig. Find your LAN ip address, and write it down for the players of the game. While you can play an instance of the game on the host computer, it is not recommended you do so, as output on the server may give you an unfair advantage.
 ```
-python3 .\cheatServer.py
+python3 .\server.py
+Name of the game? Cheat
 ```
 
 On other consoles:
 
 ```
-python3 .\GameClient.py
+python3 .\client.py
 Enter host: [Enter the LAN ip address of the host computer]
 ```
 # Bartok
@@ -54,13 +55,14 @@ On the "host" computer:
 
 Open a command shell. On Windows type ipconfig, on Mac type ifconfig. Find your LAN ip address, and write it down for the players of the game. While you can play an instance of the game on the host computer, it is not recommended you do so, as output on the server may give you an unfair advantage.
 ```
-python3 .\bartokServer.py
+python3 .\server.py
+Name of the game? Bartok
 ```
 
 On other consoles:
 
 ```
-python3 .\GameClient.py
+python3 .\client.py
 Enter host: [Enter the LAN ip address of the host computer]
 ```
 
