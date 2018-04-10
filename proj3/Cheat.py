@@ -82,6 +82,7 @@ class Cheat(Game):
               player.playFromHand(playedCards, self.bufferDeck)
               self.broadcast(player.name + " has played " + str(self.bufferDeck.size()) + " card(s).")
               self.broadcast("They currently hold " + str(player.hand.size()) + " cards.")
+              self.showHand(self.currentPlayer, None)
               self.playFlag = True
           except NotInStackException:
               player.tell("You can only play cards that are in your hand.")
@@ -113,6 +114,8 @@ class Cheat(Game):
     while not self.deck.isEmpty():
         self.currentPlayer = next(self.nextPlayer)
         self.currentPlayer.addToHand(self.deck.draw())
+    for p in self.players:
+        self.showHand(p, None)
     return True
 
   def preplayGuards(self):

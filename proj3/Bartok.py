@@ -38,7 +38,7 @@ class Bartok(Game):
     player.tell("//{hand}//" + player.getHand())
 
   def playBartok(self, player, msglist):
-      if len(self.players) < 4 or len(self.players) >= 9:
+      if len(self.players) < 2 or len(self.players) >= 9:
           player.tell("Not enough players to start the game...")
       else:
           self.playing = True
@@ -116,6 +116,8 @@ class Bartok(Game):
     self.deck.shuffle()
     self.deck.dealCards(self.players, 5)
     self.played.addToDeck(self.deck.draw())
+    for p in self.players:
+        self.showHand(p, None)
     return True
 
   def preplayGuards(self):
