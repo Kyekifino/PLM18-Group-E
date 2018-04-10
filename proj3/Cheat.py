@@ -50,7 +50,8 @@ class Cheat(Game):
     player.tell("To see your hand, write {hand}. For help, write {help}.")
 
   def showHand(self, player, msglist):
-    player.tell("//{hand}//" + player.getHand())
+    player.tell("The cards in your hand:")
+    player.tell(player.getHand())
 
   def playCheat(self, player, msglist):
       if len(self.players) < 3:
@@ -82,7 +83,7 @@ class Cheat(Game):
               player.playFromHand(playedCards, self.bufferDeck)
               self.broadcast(player.name + " has played " + str(self.bufferDeck.size()) + " card(s).")
               self.broadcast("They currently hold " + str(player.hand.size()) + " cards.")
-              self.showHand(self.currentPlayer, None)
+              self.currentPlayer.tell("//{hand}//" + self.currentPlayer.getHand())
               self.playFlag = True
           except NotInStackException:
               player.tell("You can only play cards that are in your hand.")
@@ -115,7 +116,7 @@ class Cheat(Game):
         self.currentPlayer = next(self.nextPlayer)
         self.currentPlayer.addToHand(self.deck.draw())
     for p in self.players:
-        self.showHand(p, None)
+        p.tell("//{hand}//" + p.getHand())
     return True
 
   def preplayGuards(self):

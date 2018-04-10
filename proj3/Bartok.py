@@ -35,7 +35,8 @@ class Bartok(Game):
     player.tell("To see your hand, write {hand}. For help, write {help}.")
 
   def showHand(self, player, msglist):
-    player.tell("//{hand}//" + player.getHand())
+    player.tell("The cards in your hand:")
+    player.tell(player.getHand())
 
   def playBartok(self, player, msglist):
       if len(self.players) < 2 or len(self.players) >= 9:
@@ -67,7 +68,7 @@ class Bartok(Game):
               if playedCards[0].rank == self.played.lastCard().rank or playedCards[0].suit == self.played.lastCard().suit:
                   player.playFromHand(playedCards, self.played)
                   self.broadcast(str(self.currentPlayer) + " played " + str(playedCards[0]))
-                  self.showHand(self.currentPlayer, None)
+                  self.currentPlayer.tell("//{hand}//" + self.currentPlayer.getHand())
                 #   if playedCards[0].rank == '2':
                 #       self.nextPlayer.addToHand(self.deck.draw())
                 #       self.nextPlayer.addToHand(self.deck.draw())
@@ -94,7 +95,7 @@ class Bartok(Game):
                   player.tell("Both played and unplayed decks are empty, skip the turn.")
               else:
                   self.currentPlayer.addToHand(self.deck.draw())
-                  self.showHand(self.currentPlayer, None)
+                  self.currentPlayer.tell("//{hand}//" + self.currentPlayer.getHand())
                   self.broadcast(str(self.currentPlayer) + " drew one card!")
                   self.playFlag = True
 
@@ -117,7 +118,7 @@ class Bartok(Game):
     self.deck.dealCards(self.players, 5)
     self.played.addToDeck(self.deck.draw())
     for p in self.players:
-        self.showHand(p, None)
+        p.tell("//{hand}//" + p.getHand())
     return True
 
   def preplayGuards(self):
