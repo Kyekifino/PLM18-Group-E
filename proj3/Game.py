@@ -11,7 +11,7 @@ class Game(object):
   #----------------------------------------
   def __init__(self, players):
     self.deck = Deck()
-    self.deck.fillDeck();
+    self.deck.fillDeck()
     self.playing = False
     self.actions = {}
     self.players = players
@@ -45,7 +45,7 @@ class Game(object):
   # Iterator to return next player
   #----------------------------------------
   def nextPlayerIterFunc(self):
-      currPlayer = 0;
+      currPlayer = 0
       while True:
         yield self.players[currPlayer]
         if (currPlayer < (len(self.players) - 1)):

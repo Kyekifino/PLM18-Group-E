@@ -3,32 +3,37 @@ from random import shuffle
 class NotInStackException(Exception):
     pass
 
+#----------------------------------------
+# Get suits
+#----------------------------------------
 def suits():
     return "H D C S".split(" ")
 
+#----------------------------------------
+# Get ranks
+#----------------------------------------
 def ranks():
     return "A 2 3 4 5 6 7 8 9 10 J Q K".split(" ")
 
-
+#----------------------------------------
+# Card class for a single card
+#----------------------------------------
 class Card(object):
     """Represents a card object."""
     def __init__(self, suit, rank):
         self.suit = suit
         self.rank = rank
-    # def __iter__(self):
-    #     return self
     def __repr__(self):
         return str(self.suit) + str(self.rank)
-    def __str__(self):
-        return self.__repr__()
     def __eq__(self, other):
         if isinstance(other, self.__class__):
             return self.__dict__ == other.__dict__
         else:
             return False
-    def isFace(self):
-        return self.rank in ["A", "J", "Q", "K"]
 
+#----------------------------------------
+# Stack class for hands
+#----------------------------------------
 class CardStack(object):
     """Represents any such stack of cards."""
     def __init__(self):
@@ -54,7 +59,6 @@ class CardStack(object):
         except ValueError:
             raise NotInStackException
 
-
     def size(self):
         return len(self.cards)
 
@@ -64,6 +68,9 @@ class CardStack(object):
     def empty(self):
         self.cards = []
 
+#----------------------------------------
+# Deck for full deck of cards
+#----------------------------------------
 class Deck(CardStack):
     """Represents a deck of cards."""
 
@@ -105,6 +112,3 @@ class Deck(CardStack):
           else:
               currPlayer = 0
           cardsDealt += 1
-
-    def resetDeck(self):
-        self.empty()

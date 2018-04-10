@@ -31,7 +31,7 @@ class Cheat(Game):
   # Current rank iterator
   #---------------------------------------------------
   def nextRankIterFunc(self):
-    currRank = 0;
+    currRank = 0
     while True:
       yield ranks()[currRank]
       if (currRank < (len(ranks()) - 1)):
