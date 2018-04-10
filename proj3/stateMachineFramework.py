@@ -21,13 +21,12 @@ def isa(k, seen=None):
         seen.add(k)
         yield k
         for sub in k.__subclasses__():
-            for x in isa(sub, seen):
-                yield x
+            yield from isa(sub, seen)
 
 
 class Thing(object):
     def __repr__(self):
-        return self.__class__.__name__ + kv(self.__dict__)
+        return self.__class__.__name__
 
 
 class o(Thing):
