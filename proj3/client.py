@@ -6,12 +6,24 @@ from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 import tkinter
 
+nameSet = False
+top = tkinter.Tk()
+top.title("Card Game")
+gameName = False
 
 def receive():
     """Handles receiving of messages."""
+    global nameSet
+    global gameName
     while True:
         try:
+            if gameName == False:
+                gameName = client_socket.recv(BUFSIZ).decode("utf8")
+                top.title(gameName)
             msg = client_socket.recv(BUFSIZ).decode("utf8")
+            if "Another user has that name. Try again." in msg:
+                nameSet = False
+                top.title(gameName)
             msg_list.config(state=tkinter.NORMAL)
             msg_list.insert(tkinter.END, msg + "\n")
             msg_list.see(tkinter.END)
@@ -22,7 +34,12 @@ def receive():
 
 def send(event=None):  # event is passed by binders.
     """Handles sending of messages."""
+    global nameSet
+    global gameName
     msg = my_msg.get()
+    if not nameSet:
+        top.title(gameName + ": " + msg)
+        nameSet = True
     my_msg.set("")  # Clears input field.
     client_socket.send(bytes(msg, "utf8"))
     if msg == "{quit}":
@@ -34,9 +51,6 @@ def on_closing(event=None):
     """This function is to be called when the window is closed."""
     my_msg.set("{quit}")
     send()
-
-top = tkinter.Tk()
-top.title("Chatter")
 
 messages_frame = tkinter.Frame(top)
 my_msg = tkinter.StringVar()  # For the messages to be sent.

@@ -34,11 +34,13 @@ game = None
 def accept_incoming_connections():
     """Sets up handling for incoming clients."""
     global game
+    global gameName
     while True:
         try:
             client, client_address = SERVER.accept()
             if game is None or game.playing is False:
                 print("%s:%s has connected." % client_address)
+                client.send(bytes(gameName, "utf8"))
                 client.send(bytes("Welcome to the " + gameName + " server! Now type your name and press enter to join!", "utf8"))
                 Thread(target=handle_client, args=(client,)).start()
             else:
