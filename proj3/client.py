@@ -10,20 +10,35 @@ nameSet = False
 top = tkinter.Tk()
 top.title("Card Game")
 gameName = False
+photos = []
+labels = []
 
 def receive():
     """Handles receiving of messages."""
-    global nameSet
-    global gameName
+    global nameSet, gameName, labels, photos
+    
     while True:
         try:
-            if gameName == False:
+            if not gameName:
                 gameName = client_socket.recv(BUFSIZ).decode("utf8")
                 top.title(gameName)
+                continue
             msg = client_socket.recv(BUFSIZ).decode("utf8")
             if "Another user has that name. Try again." in msg:
                 nameSet = False
                 top.title(gameName)
+            if "//{hand}//" in msg:
+                cards = []
+                cards = msg[11:len(msg) - 1].split(', ')
+                for i in range(len(cards), len(labels)):
+                    labels[i].grid_forget()
+                photos = [None]*len(cards)
+                labels = [None]*len(cards)
+                for i in range(len(cards)):
+                    photos[i] = tkinter.PhotoImage(file = ".\\pictures\\" + cards[i] + ".png", width = "69", height = "106")
+                    labels[i] = tkinter.Label(hand_frame, image = photos[i])
+                    labels[i].grid(row = i // 8, column = i % 8)
+                continue
             msg_list.config(state=tkinter.NORMAL)
             msg_list.insert(tkinter.END, msg + "\n")
             msg_list.see(tkinter.END)
@@ -37,6 +52,9 @@ def send(event=None):  # event is passed by binders.
     global nameSet
     global gameName
     msg = my_msg.get()
+    if "//{hand}//" in msg:
+        my_msg.set("")
+        return
     if not nameSet:
         top.title(gameName + ": " + msg)
         nameSet = True
@@ -53,6 +71,9 @@ def on_closing(event=None):
     send()
 
 messages_frame = tkinter.Frame(top)
+hand_frame = tkinter.Frame(top)
+hand_frame.pack( side = tkinter.TOP )
+
 my_msg = tkinter.StringVar()  # For the messages to be sent.
 my_msg.set("Your name here...")
 scrollbar = tkinter.Scrollbar(messages_frame)  # To navigate through past messages.
@@ -75,7 +96,7 @@ top.protocol("WM_DELETE_WINDOW", on_closing)
 
 #----Now comes the sockets part----
 HOST = input('Enter host: ')
-PORT = 33000#input('Enter port: ')
+PORT = 33000
 if not PORT:
     PORT = 33000
 else:

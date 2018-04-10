@@ -33,8 +33,7 @@ game = None
 
 def accept_incoming_connections():
     """Sets up handling for incoming clients."""
-    global game
-    global gameName
+    global game, gameName
     while True:
         try:
             client, client_address = SERVER.accept()

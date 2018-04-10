@@ -49,8 +49,7 @@ class Cheat(Game):
     player.tell("To see your hand, write {hand}. For help, write {help}.")
 
   def showHand(self, player, msglist):
-    player.tell("Your hand is...")
-    player.tell(player.getHand())
+    player.tell("//{hand}//" + player.getHand())
 
   def playCheat(self, player, msglist):
       if len(self.players) < 3:
