@@ -1,6 +1,6 @@
-from game import Game
+from Game import Game
 from time import time
-from cards import Deck, Card, CardStack, NotInStackException, ranks
+from Cards import Deck, Card, CardStack, NotInStackException, ranks
 from testFramework import testFramework
 from player import Player
 

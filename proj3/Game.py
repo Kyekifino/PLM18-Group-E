@@ -1,4 +1,4 @@
-from cards import Deck
+from Cards import Deck
 from stateMachineFramework import State, InnerMachine, OuterMachine, make
 from testFramework import testFramework
 from time import sleep

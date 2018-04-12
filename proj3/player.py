@@ -1,4 +1,4 @@
-from cards import CardStack, NotInStackException
+from Cards import CardStack, NotInStackException
 
 #---------------------------------------------------
 # Defining game actions

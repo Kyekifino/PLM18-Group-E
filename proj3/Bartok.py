@@ -1,5 +1,5 @@
-from game import Game
-from cards import Deck, Card, NotInStackException
+from Game import Game
+from Cards import Deck, Card, NotInStackException
 from testFramework import testFramework
 
 # Implementation of Bartok as a Game
