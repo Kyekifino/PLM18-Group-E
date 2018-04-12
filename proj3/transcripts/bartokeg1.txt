@@ -1,0 +1,188 @@
+This is a transcript of a game of bartok between four players : Alice, Anne, Madeline, and Natalie. This transcript is all output on the game screen from the perspective of the player Alice.
+
+Welcome to the bartok server! Now type your name and press enter to join!
+
+Welcome Alice! If you ever want to quit, type {quit} to exit. To see all people in the room, type {players}. To start the game, type {start}.
+Alice has joined the chat!
+
+Anna has joined the chat!
+Madeline has joined the chat!
+Natalie has joined the chat!
+
+The Bartok Game is starting!
+There are 4 players playing!
+
+To play cards on your turn, write {play} followed by the cards. 
+For example, write "{play} H4 S4" to play the 4 of Hearts and the 4 of Spades. In order to play a card, the card must match either the rank or the suite of the displayed card. If you cannot play a card, you must draw. To draw the card, write {draw}. To see your hand, write {hand}. For help, write {help}.
+
+It is Alice's turn!
+Current card is D6
+The cards in your hand:
+[D10, DQ, D9, D2, C7]
+Alice played D2
+They currently hold 4 cards.
+It is Anna's turn!
+Current card is D2
+Anna: {plaly} S2
+Anna played S2
+They currently hold 4 cards.
+It is Madeline's turn!
+Current card is S2
+Madeline played SA
+They currently hold 4 cards.
+It is Natalie's turn!
+Current card is SA
+Natalie played DA
+They currently hold 4 cards.
+It is Alice's turn!
+Current card is DA
+The cards in your hand:
+[D10, DQ, D9, C7]
+Alice played D10
+They currently hold 3 cards.
+It is Anna's turn!
+Current card is D10
+Anna drew one card!
+It is Madeline's turn!
+Current card is D10
+Madeline played DK
+They currently hold 3 cards.
+It is Natalie's turn!
+Current card is DK
+Natalie played DJ
+They currently hold 3 cards.
+It is Alice's turn!
+Current card is DJ
+The cards in your hand:
+[DQ, D9, C7]
+Alice played DQ
+They currently hold 2 cards.
+It is Anna's turn!
+Current card is DQ
+Anna drew one card!
+It is Madeline's turn!
+Current card is DQ
+Madeline drew one card!
+It is Natalie's turn!
+Current card is DQ
+Natalie drew one card!
+It is Alice's turn!
+Current card is DQ
+The cards in your hand:
+[D9, C7]
+Alice played D9
+They currently hold 1 cards.
+It is Anna's turn!
+Current card is D9
+Anna drew one card!
+It is Madeline's turn!
+Current card is D9
+Madeline played H9
+They currently hold 3 cards.
+It is Natalie's turn!
+Current card is H9
+Natalie played H8
+They currently hold 3 cards.
+It is Alice's turn!
+Current card is H8
+The cards in your hand:
+[C7]
+Alice drew one card!It is Anna's turn!
+Current card is H8
+Anna played C8
+They currently hold 6 cards.
+It is Madeline's turn!
+Current card is C8
+Madeline played S8
+They currently hold 2 cards.
+It is Natalie's turn!
+Current card is S8
+Natalie drew one card!
+It is Alice's turn!
+Current card is S8
+The cards in your hand:
+[C7, S5]
+Alice played S5
+They currently hold 1 cards.
+It is Anna's turn!
+Current card is S5
+Anna played SJ
+They currently hold 5 cards.
+It is Madeline's turn!
+Current card is SJ
+Madeline drew one card!
+It is Natalie's turn!
+Current card is SJ
+Natalie played SK
+They currently hold 3 cards.
+It is Alice's turn!
+Current card is SK
+The cards in your hand:
+[C7]
+Alice drew one card!
+It is Anna's turn!
+Current card is SK
+Anna drew one card!
+It is Madeline's turn!
+Current card is SK
+Madeline drew one card!
+It is Natalie's turn!
+Current card is SK
+Natalie drew one card!
+It is Alice's turn!
+Current card is SK
+The cards in your hand:
+[C7, H2]
+Alice drew one card!
+It is Anna's turn!
+Current card is SK
+Anna played HK
+They currently hold 5 cards.
+It is Madeline's turn!
+Current card is HK
+Madeline played H7
+They currently hold 3 cards.
+It is Natalie's turn!
+Current card is H7
+Natalie drew one card!
+It is Alice's turn!
+Current card is H7
+The cards in your hand:
+[C7, H2, H6]
+Alice played C7
+They currently hold 2 cards.
+It is Anna's turn!
+Current card is C7
+Anna played C10
+They currently hold 4 cards.
+It is Madeline's turn!
+Current card is C10
+Madeline drew one card!
+It is Natalie's turn!
+Current card is C10
+Natalie played C6
+They currently hold 4 cards.
+It is Alice's turn!
+Current card is C6
+The cards in your hand:
+[H2, H6]
+Alice played H6
+They currently hold 1 cards.
+It is Anna's turn!
+Current card is H6
+Anna played H3
+They currently hold 3 cards.
+It is Madeline's turn!
+Current card is H3
+Madeline drew one card!
+It is Natalie's turn!
+Current card is H3
+Natalie drew one card!
+It is Alice's turn!
+Current card is H3
+The cards in your hand:
+[H2]
+Alice played H2
+They currently hold 0 cards.
+Alice has emptied their hand, and wins!
+Thanks for playing!
