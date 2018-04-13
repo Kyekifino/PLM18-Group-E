@@ -83,7 +83,7 @@ class Cheat(Game):
               player.playFromHand(playedCards, self.bufferDeck)
               self.broadcast(player.name + " has played " + str(self.bufferDeck.size()) + " card(s).")
               self.broadcast("They currently hold " + str(player.hand.size()) + " cards.")
-              self.currentPlayer.tell("//{hand}//" + self.currentPlayer.getHand())
+              self.showGUIHand(self.currentPlayer)
               self.playFlag = True
           except NotInStackException:
               player.tell("You can only play cards that are in your hand.")
@@ -116,7 +116,7 @@ class Cheat(Game):
         self.currentPlayer = next(self.nextPlayer)
         self.currentPlayer.addToHand(self.deck.draw())
     for p in self.players:
-        p.tell("//{hand}//" + p.getHand())
+        self.showGUIHand(p)
     return True
 
   def preplayGuards(self):
@@ -154,10 +154,12 @@ class Cheat(Game):
             self.broadcast("%s was cheating, and has to pick up the stack! " % self.currentPlayer.name)
             while not self.discard.isEmpty():
                 self.currentPlayer.addToHand(self.discard.draw())
+            self.showGUIHand(self.currentPlayer)
         else:
             self.broadcast("%s wasn't cheating... %s has to pick up the stack..." % (self.currentPlayer.name, self.cheatCaller.name))
             while not self.discard.isEmpty():
                 self.cheatCaller.addToHand(self.discard.draw())
+            self.showGUIHand(self.cheatCaller)
     else:
         self.broadcast("Time's up!")
     if not self.discard.isEmpty():

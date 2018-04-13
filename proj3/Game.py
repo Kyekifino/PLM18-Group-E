@@ -36,6 +36,13 @@ class Game(object):
         p.tell(prefix + msg)
 
   #----------------------------------------
+  # Show a client their hand from the GUI
+  #----------------------------------------
+  def showGUIHand(self, player):
+    player.tell("//{hand}//" + player.getHand())
+    self.wait(.25)
+
+  #----------------------------------------
   # Sleep for given time
   #----------------------------------------
   def wait(self, sleepTime):

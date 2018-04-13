@@ -68,7 +68,7 @@ class Bartok(Game):
               if playedCards[0].rank == self.played.lastCard().rank or playedCards[0].suit == self.played.lastCard().suit:
                   player.playFromHand(playedCards, self.played)
                   self.broadcast(str(self.currentPlayer) + " played " + str(playedCards[0]))
-                  self.currentPlayer.tell("//{hand}//" + self.currentPlayer.getHand())
+                  self.showGUIHand(self.currentPlayer)
                 #   if playedCards[0].rank == '2':
                 #       self.nextPlayer.addToHand(self.deck.draw())
                 #       self.nextPlayer.addToHand(self.deck.draw())
@@ -95,7 +95,7 @@ class Bartok(Game):
                   player.tell("Both played and unplayed decks are empty, skip the turn.")
               else:
                   self.currentPlayer.addToHand(self.deck.draw())
-                  self.currentPlayer.tell("//{hand}//" + self.currentPlayer.getHand())
+                  self.showGUIHand(self.currentPlayer)
                   self.broadcast(str(self.currentPlayer) + " drew one card!")
                   self.playFlag = True
 
