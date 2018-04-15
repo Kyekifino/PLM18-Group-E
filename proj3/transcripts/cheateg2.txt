@@ -1,342 +1,311 @@
-This is a transcript of a game of cheat between four players: Zach, Tyler, Stephen, and Buddy. This transcript is all output on the game screen from the perspective of the player Buddy.
+This is a transcript of a game of cheat between four players: Zach, Tyler, Stephen, Ian, Kegan, and Tom. This transcript is all output on the game screen from the perspective of the player Tom.
 
 Welcome to the Cheat server! Now type your name and press enter to join!
-Welcome Buddy! If you ever want to quit, type {quit} to exit. To see all users in the room, type {users}. To start the game, type {start}.
-Zach has decided to start a game of cheat!
-
-There are 4 players playing!
-
-To play cards on your turn, write {play} followed by the cards.
-
-For example, write "{play} H4 S4" to play the 4 of Hearts and the 4 of Spades.
-If you think a player played cards that aren't of the current rank, announce {cheat}
-If they were lying, they have to pick up all the played cards... but if the weren't... you do!
-To see your hand, write {hand}. For help, write {help}.
-
-Hand: [D10, S7, CK, HK, HA, D5, C2, S10, C8, D6, H4, S9, C9]
-Zach is up! 
-Current rank is A. 
-Zach played 2 cards.
-You have five seconds to announce {cheat}.
+Welcome Tom! If you ever want to quit, type {quit} to exit. To see all people in the room, type {players}. To start the game, type {start}.
+Tom has joined the chat!
+Current players: 
+Zach --- hand size: 0
+Tyler --- hand size: 0
+Stephen --- hand size: 0
+Ian --- hand size: 0
+Kegan --- hand size: 0
+Tom --- hand size: 0
+Tom: cool everyone's in
+Tom: you ready to start?
+Kegan: yup
+Tyler: yeah
+Zach: yup
+Stephen: sure
+Ian: yeah
+Tom: cool
+The Cheat Game is starting!
+There are 6 players playing!
+To play cards on your turn, write {play} followed by the cards. 
+For example, write "{play} H4 S4" to play the 4 of Hearts and the 4 of Spades. If you think a player played cards that aren't of the current rank, announce {cheat}. If they were lying, they have to pick up all the played cards... but if the weren't... you do! To see your hand, write {hand}. For help, write {help}.
+It is Kegan's turn!
+The rank this turn is A.
+Kegan has played 1 card(s).
+They currently hold 7 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Tyler is up! 
-Current rank is 2. 
-Tyler played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 1 cards in it.
+It is Tom's turn!
+The rank this turn is 2.
+The cards in your hand:
+[DJ, S3, S10, SA, H9, D6, SK, C7]
+Tom has played 1 card(s).
+They currently hold 7 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Stephen is up! 
-Current rank is 3. 
-Stephen played 2 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
+The discard pile has 2 cards in it.
+It is Zach's turn!
+The rank this turn is 3.
+Zach has played 1 card(s).
+They currently hold 8 cards.
+You have 10 seconds to announce {cheat}.
+Time's up!
+The discard pile has 3 cards in it.
+It is Tyler's turn!
+The rank this turn is 4.
+Tyler has played 1 card(s).
+They currently hold 8 cards.
+You have 10 seconds to announce {cheat}.
+Time's up!
+The discard pile has 4 cards in it.
+It is Stephen's turn!
+The rank this turn is 5.
+Stephen has played 2 card(s).
+They currently hold 7 cards.
+You have 10 seconds to announce {cheat}.
+Tyler has called Cheat!
 Stephen wasn't cheating... Tyler has to pick up the stack...
+It is Ian's turn!
+The rank this turn is 6.
+Ian has played 1 card(s).
+They currently hold 8 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Buddy is up! 
-Current rank is 4. Hand: [D10, S7, CK, HK, HA, D5, C2, S10, C8, D6, H4, S9, C9]
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 1 cards in it.
+It is Kegan's turn!
+The rank this turn is 7.
+Kegan has played 1 card(s).
+They currently hold 6 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Zach is up! 
-Current rank is 5. 
-Zach played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 2 cards in it.
+It is Tom's turn!
+The rank this turn is 8.
+The cards in your hand:
+[DJ, S3, S10, H9, D6, SK, C7]
+Tom has played 1 card(s).
+They currently hold 6 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Tyler is up! 
-Current rank is 6. 
-Tyler played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 3 cards in it.
+It is Zach's turn!
+The rank this turn is 9.
+Zach has played 1 card(s).
+They currently hold 7 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Stephen is up! 
-Current rank is 7. 
-Stephen played 3 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
+The discard pile has 4 cards in it.
+It is Tyler's turn!
+The rank this turn is 10.
+Tyler has played 1 card(s).
+They currently hold 13 cards.
+You have 10 seconds to announce {cheat}.
+Time's up!
+The discard pile has 5 cards in it.
+It is Stephen's turn!
+The rank this turn is J.
+Stephen has played 1 card(s).
+They currently hold 6 cards.
+You have 10 seconds to announce {cheat}.
+Zach has called Cheat!
 Stephen was cheating, and has to pick up the stack! 
+It is Ian's turn!
+The rank this turn is Q.
+Stephen: how
+Zach: :D
+Ian has played 1 card(s).
+They currently hold 7 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Buddy is up! 
-Current rank is 8. Hand: [D10, S7, CK, HK, HA, D5, C2, S10, C8, D6, S9, C9]
-Buddy: C8
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
-Stephen: lol
-Tyler: lol
+The discard pile has 1 cards in it.
+It is Kegan's turn!
+The rank this turn is K.
+Kegan has played 1 card(s).
+They currently hold 5 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Zach is up! 
-Current rank is 9. 
-Zach played 2 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 2 cards in it.
+It is Tom's turn!
+The rank this turn is A.
+The cards in your hand:
+[DJ, S3, S10, D6, SK, C7]
+Tom has played 1 card(s).
+They currently hold 5 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Tyler is up! 
-Current rank is 10. 
-Tyler played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Stephen is up! 
-Current rank is J. 
-Stephen played 3 cards.
-You have five seconds to announce {cheat}.
-Zach has called cheat... 
-Stephen wasn't cheating... Zach has to pick up the stack...
-Time's up!
-Buddy is up! 
-Current rank is Q. 
-Hand: [D10, S7, CK, HK, HA, D5, C2, S10, D6, S9, C9]
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Zach is up! 
-Current rank is K. 
-Zach played 3 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
+The discard pile has 3 cards in it.
+It is Zach's turn!
+The rank this turn is 2.
+Zach has played 2 card(s).
+They currently hold 5 cards.
+You have 10 seconds to announce {cheat}.
+Tyler has called Cheat!
 Zach was cheating, and has to pick up the stack! 
+It is Tyler's turn!
+The rank this turn is 3.
+Tyler has played 1 card(s).
+They currently hold 12 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Tyler is up! 
-Current rank is A. 
-Tyler played 2 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 1 cards in it.
+It is Stephen's turn!
+The rank this turn is 4.
+Stephen has played 2 card(s).
+They currently hold 10 cards.
+You have 10 seconds to announce {cheat}.
+Zach has called Cheat!
+Stephen wasn't cheating... Zach has to pick up the stack...
+It is Ian's turn!
+The rank this turn is 5.
+Ian has played 1 card(s).
+They currently hold 6 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Stephen is up! 
-Current rank is 2. 
-Stephen played 1 cards.
-You have five seconds to announce {cheat}.
-Buddy has called cheat... 
-Stephen wasn't cheating... Buddy has to pick up the stack...
+The discard pile has 1 cards in it.
+It is Kegan's turn!
+The rank this turn is 6.
+Kegan has played 1 card(s).
+They currently hold 4 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Buddy is up! 
-Current rank is 3. 
-Hand: [D10, S7, CK, HK, D5, C2, S10, D6, S9, C9, SA, CA, H2]
-Buddy: oh
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 2 cards in it.
+It is Tom's turn!
+The rank this turn is 7.
+The cards in your hand:
+[DJ, S10, D6, SK, C7]
+Tom has played 1 card(s).
+They currently hold 4 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Zach is up! 
-Current rank is 4. 
-Zach played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 3 cards in it.
+It is Zach's turn!
+The rank this turn is 8.
+Zach has played 2 card(s).
+They currently hold 11 cards.
+You have 10 seconds to announce {cheat}.
+Tyler has called Cheat!
+Zach was cheating, and has to pick up the stack! 
+It is Tyler's turn!
+The rank this turn is 9.
+Tyler has played 1 card(s).
+They currently hold 11 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Tyler is up! 
-Current rank is 5. 
-Tyler played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 1 cards in it.
+It is Stephen's turn!
+The rank this turn is 10.
+Stephen has played 1 card(s).
+They currently hold 9 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Stephen is up! 
-Current rank is 6. 
-Stephen played 2 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 2 cards in it.
+It is Ian's turn!
+The rank this turn is J.
+Ian has played 1 card(s).
+They currently hold 5 cards.
+You have 10 seconds to announce {cheat}.
+Kegan has called Cheat!
+Ian was cheating, and has to pick up the stack! 
+It is Kegan's turn!
+The rank this turn is Q.
+Kegan has played 1 card(s).
+They currently hold 3 cards.
+You have 10 seconds to announce {cheat}.
+Ian has called Cheat!
+Kegan was cheating, and has to pick up the stack! 
+It is Tom's turn!
+The rank this turn is K.
+The cards in your hand:
+[DJ, S10, D6, SK]
+Tom has played 1 card(s).
+They currently hold 3 cards.
+You have 10 seconds to announce {cheat}.
+Stephen has called Cheat!
+Tom wasn't cheating... Stephen has to pick up the stack...
+It is Zach's turn!
+The rank this turn is A.
+Zach has played 1 card(s).
+They currently hold 15 cards.
+You have 10 seconds to announce {cheat}.
+Tyler has called Cheat!
+Zach was cheating, and has to pick up the stack! 
+It is Tyler's turn!
+The rank this turn is 2.
+Tyler has played 1 card(s).
+They currently hold 10 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Buddy is up! 
-Current rank is 7. Hand: [D10, S7, CK, HK, D5, C2, S10, D6, C9, SA, CA, H2]
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 1 cards in it.
+It is Stephen's turn!
+The rank this turn is 3.
+Stephen has played 1 card(s).
+They currently hold 9 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Zach is up! 
-Current rank is 8. 
-Zach played 2 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
-Zach wasn't cheating... Tyler has to pick up the stack...
+The discard pile has 2 cards in it.
+It is Ian's turn!
+The rank this turn is 4.
+Ian has played 1 card(s).
+They currently hold 7 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Tyler is up! 
-Current rank is 9. 
-Tyler played 2 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 3 cards in it.
+It is Kegan's turn!
+The rank this turn is 5.
+Kegan has played 2 card(s).
+They currently hold 2 cards.
+You have 10 seconds to announce {cheat}.
 Time's up!
-Stephen is up! 
-Current rank is 10. 
-Stephen played 1 cards.
-You have five seconds to announce {cheat}.
+The discard pile has 5 cards in it.
+It is Tom's turn!
+The rank this turn is 6.
+The cards in your hand:
+[DJ, S10, D6]
+Tom has played 1 card(s).
+They currently hold 2 cards.
+You have 10 seconds to announce {cheat}.
+Tyler has called Cheat!
+Tom wasn't cheating... Tyler has to pick up the stack...
+It is Zach's turn!
+The rank this turn is 7.
+Zach has played 1 card(s).
+They currently hold 15 cards.
+You have 10 seconds to announce {cheat}.
+Kegan: ooh
+Kegan: it's over
 Time's up!
-Buddy is up! 
-Current rank is J. Hand: [D10, CK, HK, D5, C2, S10, D6, C9, SA, CA, H2]
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
-Zach has called cheat... 
-Buddy was cheating, and has to pick up the stack! 
-Time's up!
-Zach is up! 
-Current rank is Q. 
-Buddy: man
-Hand: [D10, CK, HK, D5, C2, S10, D6, C9, SA, H2, S9, H9, C10, CA]
-Zach played 2 cards.
-You have five seconds to announce {cheat}.
-Buddy has called cheat... 
-Zach wasn't cheating... Buddy has to pick up the stack...
-Time's up!
-Tyler is up! 
-Current rank is K. 
-Tyler played 3 cards.
-You have five seconds to announce {cheat}.
-Stephen has called cheat... 
-Tyler was cheating, and has to pick up the stack! 
-Time's up!
-Stephen is up! 
-Current rank is A. 
-Stephen played 2 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Buddy is up! 
-Current rank is 2. Hand: [D10, CK, HK, D5, C2, S10, D6, C9, SA, H2, S9, H9, C10, CA, CQ, HQ]
-Buddy played 2 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Zach is up! 
-Current rank is 3. 
-Zach played 2 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Tyler is up! 
-Current rank is 4. 
-Tyler played 3 cards.
-You have five seconds to announce {cheat}.
-Zach has called cheat... 
+The discard pile has 1 cards in it.
+It is Tyler's turn!
+The rank this turn is 8.
+Tyler: You're kidding
+Kegan: :)))
+Tyler has played 1 card(s).
+They currently hold 15 cards.
+You have 10 seconds to announce {cheat}.
+Zach has called Cheat!
 Tyler wasn't cheating... Zach has to pick up the stack...
+It is Stephen's turn!
+The rank this turn is 9.
+Stephen has played 1 card(s).
+They currently hold 8 cards.
+You have 10 seconds to announce {cheat}.
+Kegan: cmooooon
 Time's up!
-Stephen is up! 
-Current rank is 5. 
-Stephen played 2 cards.
-You have five seconds to announce {cheat}.
-Zach has called cheat... 
-Stephen wasn't cheating... Zach has to pick up the stack...
+The discard pile has 1 cards in it.
+It is Ian's turn!
+The rank this turn is 10.
+Tom: he showed me lol
+Ian has played 1 card(s).
+They currently hold 6 cards.
+You have 10 seconds to announce {cheat}.
+Tom: I almost had it too
+Tom: kinda
+Kegan: gg
 Time's up!
-Buddy is up! 
-Current rank is 6. Hand: [D10, CK, HK, D5, S10, D6, C9, SA, S9, H9, C10, CA, CQ, HQ]
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Zach is up! 
-Current rank is 7. 
-Zach played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Tyler is up! 
-Current rank is 8. 
-Tyler played 2 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Stephen is up! 
-Current rank is 9. 
-Stephen played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Buddy is up! 
-Current rank is 10. Hand: [D10, CK, HK, D5, S10, C9, SA, S9, H9, C10, CA, CQ, HQ]
-Buddy played 3 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Zach is up! 
-Current rank is J. 
-Zach played 3 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
-Zach wasn't cheating... Tyler has to pick up the stack...
-Time's up!
-Tyler is up! 
-Current rank is Q. 
-Tyler: can I just play nothing
-Zach: no
-Tyler: bruh
-Tyler played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Stephen is up! 
-Current rank is K. 
-Stephen played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Buddy is up! 
-Current rank is A. 
-Hand: [CK, HK, D5, S10, C9, SA, S9, H9, CA, CQ, HQ]
-Buddy played 2 cards.
-You have five seconds to announce {cheat}.
-Zach has called cheat... 
-Buddy wasn't cheating... Zach has to pick up the stack...
-Time's up!
-Zach is up! 
-Current rank is 2. 
-Zach played 3 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Tyler is up! 
-Current rank is 3. 
-Tyler played 3 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Stephen is up! 
-Current rank is 4. 
-Stephen played 1 cards.
-Stephen emptied their hand!
-Stephen was cheating with their final play, and must pick up the deck!
-Buddy is up! 
-Current rank is 5. Hand: [CK, HK, D5, S10, C9, S9, H9, CQ, HQ]
-Buddy played 1 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Zach is up! 
-Current rank is 6. 
-Zach played 2 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
-Zach was cheating, and has to pick up the stack! 
-Time's up!
-Tyler is up! 
-Current rank is 7. 
-Tyler played 4 cards.
-You have five seconds to announce {cheat}.
-Buddy has called cheat... 
-Tyler wasn't cheating... Buddy has to pick up the stack...
-Time's up!
-Stephen is up! 
-Current rank is 8. 
-Stephen played 2 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Buddy is up! 
-Current rank is 9. Hand: [CK, HK, S10, C9, S9, H9, CQ, HQ, D7, H7, S7, C7]
-Buddy played 3 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Zach is up! 
-Current rank is 10. 
-Zach played 2 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Tyler is up! 
-Current rank is J. 
-Tyler played 3 cards.
-You have five seconds to announce {cheat}.
-Buddy has called cheat... 
-Tyler wasn't cheating... Buddy has to pick up the stack...
-Time's up!
-Stephen is up! 
-Current rank is Q. 
-Stephen played 3 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Buddy is up! 
-Current rank is K. Hand: [CK, HK, S10, CQ, HQ, D7, H7, S7, C7, D8, D2, C9, S9, H9, D10, H10, SJ, CJ, DJ]
-Buddy played 2 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
-Buddy wasn't cheating... Tyler has to pick up the stack...
-Time's up!
-Zach is up! 
-Current rank is A. 
-Zach played 3 cards.
-You have five seconds to announce {cheat}.
-Tyler has called cheat... 
-Zach wasn't cheating... Tyler has to pick up the stack...
-Time's up!
-Tyler is up! 
-Current rank is 2. 
-Tyler played 3 cards.
-You have five seconds to announce {cheat}.
-Time's up!
-Stephen is up! 
-Current rank is 3. 
-Stephen: good game guys
-Stephen played 2 cards.
-Stephen emptied their hand!
-Stephen wasn't cheating... and wins!
-Game over!
-Say {start} to play again!
+The discard pile has 2 cards in it.
+It is Kegan's turn!
+The rank this turn is J.
+Kegan has played 2 card(s).
+They currently hold 0 cards.
+You have 10 seconds to announce {cheat}.
+Zach has called Cheat!
+Kegan wasn't cheating... Zach has to pick up the stack...
+Kegan has emptied their hand, and wins!
+Thanks for playing!
+Kegan: Woooo
+Kegan: gg
+Tom: thx guys

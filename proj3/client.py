@@ -32,7 +32,10 @@ def receive():
                 hand_canvas.delete("all")
                 photos = [None]*len(cards)
                 for i in range(len(cards)):
-                    photos[i] = tkinter.PhotoImage(file = ".\\pictures\\" + cards[i] + ".png", width = "69", height = "106")
+                    try:
+                        photos[i] = tkinter.PhotoImage(file = ".\\pictures\\" + cards[i] + ".png", width = "69", height = "106")
+                    except tkinter.TclError:
+                        continue
                     if 72*(i+1) > 600:
                             hand_canvas.config(scrollregion=(0,0,72*(i+1),115))
                     else:

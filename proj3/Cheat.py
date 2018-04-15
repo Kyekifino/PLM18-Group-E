@@ -81,9 +81,9 @@ class Cheat(Game):
               playedCards.append(card)
           try:
               player.playFromHand(playedCards, self.bufferDeck)
+              self.showGUIHand(self.currentPlayer)
               self.broadcast(player.name + " has played " + str(self.bufferDeck.size()) + " card(s).")
               self.broadcast("They currently hold " + str(player.hand.size()) + " cards.")
-              self.showGUIHand(self.currentPlayer)
               self.playFlag = True
           except NotInStackException:
               player.tell("You can only play cards that are in your hand.")
