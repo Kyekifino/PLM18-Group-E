@@ -1,0 +1,124 @@
+This is a transcript of a game of bartok between four players : Ava, Melissa, Stephanie, and Ellen. This transcript is all output on the game screen from the perspective of the player Ava.
+
+Welcome to the bartok server! Now type your name and press enter to join!
+
+Welcome Ava! If you ever want to quit, type {quit} to exit. To see all people in the room, type {players}. To start the game, type {start}.
+Ava has joined the chat!
+Melissa has joined the chat!
+Stephanie has joined the chat!
+Ellen has joined the chat!
+The Bartok Game is starting!
+There are 4 players playing!
+To play cards on your turn, write {play} followed by the cards. 
+For example, write "{play} H4 S4" to play the 4 of Hearts and the 4 of Spades. In order to play a card, the card must match either the rank or the suite of the displayed card. If you cannot play a card, you must draw. To draw the card, write {draw}. To see your hand, write {hand}. For help, write {help}.
+It is Ava's turn!
+Current card is DA
+The cards in your hand:
+[C9, H4, C6, C10, S9]
+Ava drew one card!
+It is Melissa's turn!
+Current card is DA
+Melissa played HA
+They currently hold 4 cards.
+It is Stephanie's turn!
+Current card is HA
+Stephanie drew one card!
+It is Ellen's turn!
+Current card is HA
+Ellen played HQ
+They currently hold 4 cards.
+It is Ava's turn!
+Current card is HQ
+The cards in your hand:
+[C9, H4, C6, C10, S9, D4]
+Ava played H4
+They currently hold 5 cards.
+It is Melissa's turn!
+Current card is H4
+Melissa played S4
+They currently hold 3 cards.
+It is Stephanie's turn!
+Current card is S4
+Stephanie: {plau} C4
+Stephanie played C4
+They currently hold 5 cards.
+It is Ellen's turn!
+Current card is C4
+Ellen drew one card!
+It is Ava's turn!
+Current card is C4
+The cards in your hand:
+[C9, C6, C10, S9, D4]
+Ava played D4
+They currently hold 4 cards.
+It is Melissa's turn!
+Current card is D4
+Melissa played D7
+They currently hold 2 cards.
+It is Stephanie's turn!
+Current card is D7
+Stephanie drew one card!
+It is Ellen's turn!
+Current card is D7
+Ellen played D8
+They currently hold 4 cards.
+It is Ava's turn!
+Current card is D8
+The cards in your hand:
+[C9, C6, C10, S9]
+Ava drew one card!
+It is Melissa's turn!
+Current card is D8
+Melissa: {pay} DQ
+Melissa played DQ
+They currently hold 1 cards.
+It is Stephanie's turn!
+Current card is DQ
+Stephanie played CQ
+They currently hold 5 cards.
+It is Ellen's turn!
+Current card is CQ
+Ellen played CK
+They currently hold 3 cards.
+It is Ava's turn!
+Current card is CK
+The cards in your hand:
+[C9, C6, C10, S9, H7]
+Ava played C9
+They currently hold 4 cards.
+It is Melissa's turn!
+Current card is C9
+Melissa drew one card!
+It is Stephanie's turn!
+Current card is C9
+Stephanie drew one card!
+It is Ellen's turn!
+Current card is C9
+Ellen drew one card!
+It is Ava's turn!
+Current card is C9
+The cards in your hand:
+[C6, C10, S9, H7]
+Ava drew one card!
+It is Melissa's turn!
+Current card is C9
+Melissa played D9
+They currently hold 1 cards.
+It is Stephanie's turn!
+Current card is D9
+Stephanie drew one card!
+It is Ellen's turn!
+Current card is D9
+Ellen drew one card!
+It is Ava's turn!
+Current card is D9
+The cards in your hand:
+[C6, C10, S9, H7, D3]
+Ava played S9
+They currently hold 4 cards.
+It is Melissa's turn!
+Current card is S9
+Melissa played S7
+They currently hold 0 cards.
+Melissa has emptied their hand, and wins!
+Thanks for playing!
