@@ -80,6 +80,10 @@ class Deck(CardStack):
     def lastCard(self):
         return self.cards[len(self.cards) - 1]
 
+    def remove(self, removedCard):
+        self.cards.remove(removedCard)
+        return removedCard
+        
     def draw(self):
         return self.cards.pop()
 
