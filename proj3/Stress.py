@@ -68,9 +68,10 @@ class Stress(Game):
       elif (playedCards[0] not in player.hand.cards):
         player.tell("You must own the card you want to drop.")
       else:
-        player.playFromHand(playedCards[0], self.played)
+        self.played.addToDeck(playedCards[0])
+        player.hand.cards.remove(playedCards[0])
         player.addToHand(self.played.remove(playedCards[1]))
-        self.broadcast(str(self.currentPlayer) + "dropped " + str(playedCards[0]) + " and picked up " + str(playedCards[1]))
+        self.broadcast(str(self.currentPlayer) + " dropped " + str(playedCards[0]) + " and picked up " + str(playedCards[1]))
         self.showGUIHand(self.currentPlayer)
         self.playFlag = True
 
@@ -124,8 +125,8 @@ class Stress(Game):
     for card in self.currentPlayer.hand.cards:
       if card.rank not in types:
         types.append(card.rank)
-      suits[card.suit] += 1
-    return suits == 4 and types == 48 / len(self.players)
+      suits[card.suit] = 1
+    return suits["H"] == 1 and suits["D"] == 1 and suits["S"] == 1 and suits["C"] and types == 48 / len(self.players)
       
 
   def endGame(self):
